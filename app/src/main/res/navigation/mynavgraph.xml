@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mynavgraph"
+    app:startDestination="@id/nav_home">
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.rishabh.washer.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_washAndIronFragment"
+            app:destination="@id/washAndIronFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_order"
+        android:name="com.rishabh.washer.OrderFragment"
+        android:label="fragment_order"
+        tools:layout="@layout/fragment_order" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.rishabh.washer.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_nav_profile_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/washAndIronFragment"
+        android:name="com.rishabh.washer.WashAndIronFragment"
+        android:label="fragment_wash_and_iron"
+        tools:layout="@layout/fragment_wash_and_iron" >
+        <action
+            android:id="@+id/action_washAndIronFragment_to_washingPreferenceFragment"
+            app:destination="@id/washingPreferenceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/washingPreferenceFragment"
+        android:name="com.rishabh.washer.WashingPreferenceFragment"
+        android:label="fragment_washing_preference"
+        tools:layout="@layout/fragment_washing_preference" >
+        <action
+            android:id="@+id/action_washingPreferenceFragment_to_otherDetailFragment"
+            app:destination="@id/otherDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otherDetailFragment"
+        android:name="com.rishabh.washer.OtherDetailFragment"
+        android:label="fragment_other_detail"
+        tools:layout="@layout/fragment_other_detail" >
+        <action
+            android:id="@+id/action_otherDetailFragment_to_checkoutDetailFragment"
+            app:destination="@id/checkoutDetailFragment" />
+        <action
+            android:id="@+id/action_otherDetailFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkoutDetailFragment"
+        android:name="com.rishabh.washer.CheckoutDetailFragment"
+        android:label="fragment_checkout_detail"
+        tools:layout="@layout/fragment_checkout_detail" >
+
+
+        <action
+            android:id="@+id/action_checkoutDetailFragment_to_sucessDialogFragment"
+            app:destination="@id/sucessDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.rishabh.washer.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment2_to_otpFragment2"
+            app:destination="@id/otpFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpFragment2"
+        android:name="com.rishabh.washer.OtpFragment"
+        android:label="fragment_otp"
+        tools:layout="@layout/fragment_otp" >
+        <action
+            android:id="@+id/action_otpFragment2_to_userDetailFragment2"
+            app:destination="@id/userDetailFragment2"
+            app:popUpTo="@id/mynavgraph"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_otpFragment2_to_nav_home"
+            app:destination="@id/nav_home"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailFragment2"
+        android:name="com.rishabh.washer.UserDetailFragment"
+        android:label="fragment_user_detail"
+        tools:layout="@layout/fragment_user_detail" >
+        <action
+            android:id="@+id/action_userDetailFragment2_to_nav_home"
+            app:destination="@id/nav_home"
+
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.rishabh.washer.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_otherDetailFragment"
+            app:destination="@id/otherDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sucessDialogFragment"
+        android:name="com.rishabh.washer.SucessDialogFragment"
+        android:label="fragment_sucess_dialog"
+        tools:layout="@layout/fragment_sucess_dialog" >
+
+        <action
+            android:id="@+id/action_sucessDialogFragment_to_nav_home"
+            app:destination="@id/nav_home"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.rishabh.washer.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+</navigation>

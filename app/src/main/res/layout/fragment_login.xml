@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_margin="16dp"
+    android:orientation="vertical"
+    tools:context=".LoginFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_black"
+        android:gravity="center_horizontal"
+        android:text="Login"
+        android:textColor="@color/purple"
+        android:textSize="24sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign in to your account"
+        android:fontFamily="@font/rubik_bold"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:textColor="@color/purple_light"
+        android:textSize="16sp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phoneNumberText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number"
+        app:counterEnabled="true"
+        app:counterMaxLength="10"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="10"
+            android:inputType="number"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/doneBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btn_background"
+        android:fontFamily="@font/rubik_bold"
+        android:text="Continue"
+        app:backgroundTint="@color/yellow" />
+
+
+
+</LinearLayout>
