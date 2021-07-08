@@ -5,6 +5,8 @@ plugins {
 }
 apply plugin: "androidx.navigation.safeargs"
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -78,4 +80,13 @@ dependencies {
     implementation 'com.github.mancj:MaterialSearchBar:0.8.5'
 
     implementation 'com.google.android.libraries.places:places:2.4.0'
+
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-messaging'
+
+    implementation 'com.google.firebase:firebase-inappmessaging-display'
+
+
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 }

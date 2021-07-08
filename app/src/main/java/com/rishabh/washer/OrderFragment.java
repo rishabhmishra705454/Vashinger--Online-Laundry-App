@@ -62,18 +62,28 @@ public class OrderFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 displayOrderModelArrayList.clear();
 
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                if (snapshot.exists()){
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 
-                    DisplayOrderModel orderModel = dataSnapshot.getValue(DisplayOrderModel.class);
+                        DisplayOrderModel orderModel = dataSnapshot.getValue(DisplayOrderModel.class);
 
 
 
-                    displayOrderModelArrayList.add(orderModel);
+                        displayOrderModelArrayList.add(orderModel);
+                    }
+
+                    DisplayOrderAdapter displayOrderAdapter = new DisplayOrderAdapter(getActivity() , displayOrderModelArrayList);
+                    binding.shimmerLayout.setVisibility(View.GONE);
+                    binding.notFoundLayout.setVisibility(View.GONE);
+                    binding.recyclerView.setVisibility(View.VISIBLE);
+                    binding.recyclerView.setAdapter(displayOrderAdapter);
+                }else {
+
+                    binding.shimmerLayout.setVisibility(View.GONE);
+                    binding.notFoundLayout.setVisibility(View.VISIBLE);
+                    binding.recyclerView.setVisibility(View.GONE);
                 }
 
-                DisplayOrderAdapter displayOrderAdapter = new DisplayOrderAdapter(getActivity() , displayOrderModelArrayList);
-                binding.recyclerView.setVisibility(View.VISIBLE);
-                binding.recyclerView.setAdapter(displayOrderAdapter);
 
             }
 

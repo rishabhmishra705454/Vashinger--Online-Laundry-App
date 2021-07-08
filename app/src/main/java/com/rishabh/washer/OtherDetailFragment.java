@@ -2,6 +2,7 @@ package com.rishabh.washer;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -15,6 +16,7 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -114,6 +116,33 @@ public class OtherDetailFragment extends Fragment {
 
         //pickup date
 
+        final Calendar calendar = Calendar.getInstance();
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH);
+
+
+        binding.pickupDateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(getContext());
+
+                datePickerDialog =new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                        String pickupDate = dayOfMonth + "/" + (month +1) + "/" + year;
+                        binding.pickupDateButton.setText(pickupDate);
+                    }
+                }, year , month , day);
+
+                datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
+                datePickerDialog.show();
+            }
+        });
+
+/*
         MaterialDatePicker.Builder materialDateBuilder = MaterialDatePicker.Builder.datePicker();
         materialDateBuilder.setTitleText("SELECT A DATE");
         final MaterialDatePicker materialDatePicker1 = materialDateBuilder.build();
@@ -122,6 +151,7 @@ public class OtherDetailFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 materialDatePicker1.show(getChildFragmentManager(), "MATERIAL_DATE_PICKER");
+
 
             }
         });
@@ -136,6 +166,8 @@ public class OtherDetailFragment extends Fragment {
 
                     }
                 });
+
+ */
 
 
         //pickup time
@@ -166,8 +198,29 @@ public class OtherDetailFragment extends Fragment {
 
         //delivery date
 
+        binding.deliveryDateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(getContext());
+
+                datePickerDialog =new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                        String pickupDate = dayOfMonth + "/" + (month +1) + "/" + year;
+                        binding.deliveryDateButton.setText(pickupDate);
+                    }
+                }, year , month , day);
+
+                datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
+                datePickerDialog.show();
+            }
+        });
+
+/*
         MaterialDatePicker.Builder materialDateBuilder1 = MaterialDatePicker.Builder.datePicker();
-        materialDateBuilder.setTitleText("SELECT A DATE");
+        materialDateBuilder1.setTitleText("SELECT A DATE");
         final MaterialDatePicker materialDatePicker2 = materialDateBuilder1.build();
 
         binding.deliveryDateButton.setOnClickListener(new View.OnClickListener() {
@@ -188,6 +241,8 @@ public class OtherDetailFragment extends Fragment {
 
                     }
                 });
+
+ */
 
 
         //delivery time
