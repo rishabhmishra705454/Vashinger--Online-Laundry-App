@@ -74,98 +74,98 @@
             android:id="@+id/textView29"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:fontFamily="@font/rubik_medium"
             android:text="Pickup"
             android:textColor="@color/purple_light"
             android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/pickupTime"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView28" />
+            app:layout_constraintTop_toTopOf="@+id/pickupTime" />
 
         <TextView
             android:id="@+id/pickupTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/rubik_medium"
             android:text="12 jun , 2020 "
             android:textColor="@color/purple"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView29"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView29" />
+            app:layout_constraintTop_toBottomOf="@+id/status" />
 
         <TextView
             android:id="@+id/textView31"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:fontFamily="@font/rubik_medium"
             android:text="Address"
             android:textColor="@color/purple_light"
             android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/pickupAddress"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView29" />
+            app:layout_constraintTop_toTopOf="@+id/pickupAddress" />
 
 
         <TextView
             android:id="@+id/pickupAddress"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/rubik_medium"
             android:text="12 jun , 2020 "
             android:textColor="@color/purple"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView31"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView31" />
+            app:layout_constraintTop_toBottomOf="@+id/pickupTime" />
 
         <TextView
             android:id="@+id/textView33"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:fontFamily="@font/rubik_medium"
             android:text="Delivery"
             android:textColor="@color/purple_light"
             android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/deliveryTime"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView31" />
+            app:layout_constraintTop_toTopOf="@+id/deliveryTime" />
 
         <TextView
             android:id="@+id/deliveryTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/rubik_medium"
             android:text="12 jun , 2020 "
             android:textColor="@color/purple"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView33"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView33" />
+            app:layout_constraintTop_toBottomOf="@+id/pickupAddress" />
 
         <TextView
             android:id="@+id/textView34"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:fontFamily="@font/rubik_medium"
             android:text="Address"
             android:textColor="@color/purple_light"
             android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/deliveryAddress"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView33" />
+            app:layout_constraintTop_toTopOf="@+id/deliveryAddress" />
 
         <TextView
             android:id="@+id/deliveryAddress"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/rubik_medium"
             android:text="12 jun , 2020 "
             android:textColor="@color/purple"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView34"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView34" />
+            app:layout_constraintTop_toBottomOf="@+id/deliveryTime" />
 
         <View
             android:id="@+id/view3"

@@ -140,28 +140,29 @@
             <RelativeLayout
                 android:id="@+id/bottomRelative"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/topRelative"
-                android:layout_alignParentBottom="true"
-                android:layout_height="wrap_content">
+                android:layout_alignParentBottom="true">
 
                 <TextView
                     android:id="@+id/titleText"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/rubik_bold"
-                    android:textColor="@color/purple"
-                    android:textSize="16sp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginBottom="10dp"
                     android:layout_height="wrap_content"
-                    android:text="Select Cloths"/>
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/rubik_bold"
+                    android:text="Select Cloths"
+                    android:textColor="@color/purple"
+                    android:textSize="16sp" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/addDetailRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="100dp"
                     android:layout_below="@id/titleText"
-                    android:layout_centerHorizontal="true"/>
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="100dp" />
 
             </RelativeLayout>
 

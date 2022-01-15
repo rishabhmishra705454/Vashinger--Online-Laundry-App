@@ -2,15 +2,16 @@ package com.rishabh.washer.model;
 
 public class DisplayOrderModel {
 
-    private String id , orderDate , orderTime , paymentType , status ,colorPreference , washingTemperature , additionalNote , address , locality ,pincode, latitude , longitude , pickupDate, pickupTime, deliveryDate ,deliveryTime ,totalPrice , totalItem, serviceType ;
+    private String id ,uid , orderDate , orderTime , paymentType , status ,colorPreference , washingTemperature , additionalNote  , pickupDate, pickupTime, deliveryDate ,deliveryTime ,totalPrice , totalItem, serviceType ,address ,pincode,locality,latitude ,longitude ,phoneNo ,houseNo ,landmark , fullName ;
 
     private Boolean dryHeater , scentedDetergent  , useSoftner;
 
     public DisplayOrderModel() {
     }
 
-    public DisplayOrderModel(String id, String orderDate, String orderTime, String paymentType, String status, String colorPreference, String washingTemperature, String additionalNote, String address, String locality, String pincode, String latitude, String longitude, String pickupDate, String pickupTime, String deliveryDate, String deliveryTime, String totalPrice, String totalItem, String serviceType, Boolean dryHeater, Boolean scentedDetergent, Boolean useSoftner) {
+    public DisplayOrderModel(String id, String uid, String orderDate, String orderTime, String paymentType, String status, String colorPreference, String washingTemperature, String additionalNote, String pickupDate, String pickupTime, String deliveryDate, String deliveryTime, String totalPrice, String totalItem, String serviceType, String address, String pincode, String locality, String latitude, String longitude, String phoneNo, String houseNo, String landmark, String fullName, Boolean dryHeater, Boolean scentedDetergent, Boolean useSoftner) {
         this.id = id;
+        this.uid = uid;
         this.orderDate = orderDate;
         this.orderTime = orderTime;
         this.paymentType = paymentType;
@@ -18,11 +19,6 @@ public class DisplayOrderModel {
         this.colorPreference = colorPreference;
         this.washingTemperature = washingTemperature;
         this.additionalNote = additionalNote;
-        this.address = address;
-        this.locality = locality;
-        this.pincode = pincode;
-        this.latitude = latitude;
-        this.longitude = longitude;
         this.pickupDate = pickupDate;
         this.pickupTime = pickupTime;
         this.deliveryDate = deliveryDate;
@@ -30,6 +26,15 @@ public class DisplayOrderModel {
         this.totalPrice = totalPrice;
         this.totalItem = totalItem;
         this.serviceType = serviceType;
+        this.address = address;
+        this.pincode = pincode;
+        this.locality = locality;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.phoneNo = phoneNo;
+        this.houseNo = houseNo;
+        this.landmark = landmark;
+        this.fullName = fullName;
         this.dryHeater = dryHeater;
         this.scentedDetergent = scentedDetergent;
         this.useSoftner = useSoftner;
@@ -41,6 +46,14 @@ public class DisplayOrderModel {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getOrderDate() {
@@ -99,46 +112,6 @@ public class DisplayOrderModel {
         this.additionalNote = additionalNote;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getLocality() {
-        return locality;
-    }
-
-    public void setLocality(String locality) {
-        this.locality = locality;
-    }
-
-    public String getPincode() {
-        return pincode;
-    }
-
-    public void setPincode(String pincode) {
-        this.pincode = pincode;
-    }
-
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
-
     public String getPickupDate() {
         return pickupDate;
     }
@@ -193,6 +166,78 @@ public class DisplayOrderModel {
 
     public void setServiceType(String serviceType) {
         this.serviceType = serviceType;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPincode() {
+        return pincode;
+    }
+
+    public void setPincode(String pincode) {
+        this.pincode = pincode;
+    }
+
+    public String getLocality() {
+        return locality;
+    }
+
+    public void setLocality(String locality) {
+        this.locality = locality;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
+    }
+
+    public String getHouseNo() {
+        return houseNo;
+    }
+
+    public void setHouseNo(String houseNo) {
+        this.houseNo = houseNo;
+    }
+
+    public String getLandmark() {
+        return landmark;
+    }
+
+    public void setLandmark(String landmark) {
+        this.landmark = landmark;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public Boolean getDryHeater() {

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -15,14 +14,15 @@ import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -40,25 +40,37 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
-import com.google.android.libraries.places.widget.Autocomplete;
-import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
+import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
+import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.rishabh.washer.databinding.FragmentMapsBinding;
+import com.rishabh.washer.model.SavedAddressModel;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-import static android.content.Context.MODE_PRIVATE;
-
 public class MapsFragment extends Fragment {
 
     GoogleMap mMap;
-
+    View layout;
     private FragmentMapsBinding binding;
     FusedLocationProviderClient mLocationClient;
 
     View view;
+    RelativeLayout bottomSheetRL;
 
+    TextInputLayout mphoneNo;
+    TextInputLayout mhouseNo;
+    TextInputLayout mlandmark;
+    TextInputLayout mname;
+    MaterialButton button;
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
         /**
@@ -80,7 +92,7 @@ public class MapsFragment extends Fragment {
                 @Override
                 public void onCameraIdle() {
                     LatLng target = mMap.getCameraPosition().target;
-                   Double mlatitude = target.latitude;
+                    Double mlatitude = target.latitude;
                     Double mlongitude = target.longitude;
 
                     try {
@@ -89,36 +101,90 @@ public class MapsFragment extends Fragment {
 
 
                         if (addressList != null && addressList.size() > 0) {
-                            String address  = addressList.get(0).getAddressLine(0);
-                           String pinCode = addressList.get(0).getPostalCode();
-                           String locality = addressList.get(0).getLocality();
+                            String address = addressList.get(0).getAddressLine(0);
+                            String pinCode = addressList.get(0).getPostalCode();
+                            String locality = addressList.get(0).getLocality();
 
-                             binding.addressText.setText(address);
+                            binding.addressText.setText(address);
                             binding.localtyText.setText(locality);
 
                             binding.doneBtn.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
 
-                                    SharedPreferences setLocation = getActivity().getSharedPreferences("LOCATION", MODE_PRIVATE);
-                                    SharedPreferences.Editor editor;
-                                    editor = setLocation.edit();
-                                    editor.putString("address" , address);
-                                    editor.putString("pincode",pinCode);
-                                    editor.putString("locality" ,locality);
-                                    editor.putString("latitude" , Double.toString(mlatitude));
-                                    editor.putString("longitude" , Double.toString(mlongitude));
-                                    editor.apply();
+                                    final BottomSheetDialog bottomSheetTeachersDialog = new BottomSheetDialog(view.getContext(), R.style.BottomSheetDialogTheme);
+
+                                    // passing a layout file for our bottom sheet dialog.
+                                    layout = LayoutInflater.from(view.getContext()).inflate(R.layout.bottom_sheet_location, bottomSheetRL);
+
+                                    // passing our layout file to our bottom sheet dialog.
+                                    bottomSheetTeachersDialog.setContentView(layout);
+
+                                    // below line is to set our bottom sheet dialog as cancelable.
+                                    bottomSheetTeachersDialog.setCancelable(false);
+
+                                    // below line is to set our bottom sheet cancelable.
+                                    bottomSheetTeachersDialog.setCanceledOnTouchOutside(true);
+
+                                    // below line is to display our bottom sheet dialog.
+                                    bottomSheetTeachersDialog.show();
+
+                                     button = layout.findViewById(R.id.doneBtn);
+                                    button.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            mphoneNo = layout.findViewById(R.id.textPhoneNo2);
+                                            mhouseNo = layout.findViewById(R.id.inputHouseNo2);
+                                            mlandmark = layout.findViewById(R.id.inputLandMark2);
+                                            mname = layout.findViewById(R.id.textname2);
 
 
-                                    Navigation.findNavController(view).popBackStack();
+                                            if (!fullNameValidation() || !phoneValidation() || !flatValidate()) {
+                                                return;
+                                            }
+                                            String phoneNo = mphoneNo.getEditText().getText().toString().trim();
+                                            String houseNo = mhouseNo.getEditText().getText().toString();
+                                            String landmark = mlandmark.getEditText().getText().toString();
+                                            String fullName = mname.getEditText().getText().toString();
+
+/*
+                                            SharedPreferences setLocation = getActivity().getSharedPreferences("LOCATION", MODE_PRIVATE);
+                                            SharedPreferences.Editor editor;
+                                            editor = setLocation.edit();
+                                            editor.putString("address" , address);
+                                            editor.putString("pincode",pinCode);
+                                            editor.putString("locality" ,locality);
+                                            editor.putString("latitude" , Double.toString(mlatitude));
+                                            editor.putString("longitude" , Double.toString(mlongitude));
+                                            editor.putString("phoneNo" , phoneNo);
+                                            editor.putString("houseNo" ,houseNo);
+                                            editor.putString("landmark" , landmark);
+                                            editor.apply();
+
+ */
+
+                                            FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                                            String uid = mAuth.getCurrentUser().getUid();
+                                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+                                            DatabaseReference myRef = database.getReference("Address").child(uid);
+
+                                            String key = myRef.push().getKey();
+                                            SavedAddressModel savedAddressModel = new SavedAddressModel(uid, key, address, pinCode, locality, Double.toString(mlatitude), Double.toString(mlongitude), phoneNo, houseNo, landmark, fullName);
+                                            myRef.child(key).setValue(savedAddressModel);
+
+
+                                            bottomSheetTeachersDialog.cancel();
+                                            Navigation.findNavController(view).popBackStack();
+
+
+                                        }
+                                    });
 
                                 }
                             });
 
                         }
-
-
 
 
                         //  textLatLong.setText(Double.toString(latitude) + " " + Double.toString(longitude));
@@ -133,6 +199,49 @@ public class MapsFragment extends Fragment {
         }
     };
 
+
+
+    private boolean flatValidate() {
+
+        String val = mhouseNo.getEditText().getText().toString().trim();
+        if (val.isEmpty()) {
+            mhouseNo.setError("Please enter flat no/building name");
+            return false;
+        } else {
+            mhouseNo.setError(null);
+            return true;
+        }
+    }
+
+    private boolean phoneValidation() {
+        String val = mphoneNo.getEditText().getText().toString().trim();
+        if (val.isEmpty()) {
+            mphoneNo.setError("Please enter phone number");
+            return false;
+        }if (val.length() < 10) {
+            mphoneNo.setError("Please enter valid number");
+            return false;
+        } else {
+            mphoneNo.setError(null);
+            mphoneNo.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private boolean fullNameValidation() {
+
+        String val = mname.getEditText().getText().toString().trim();
+        if (val.isEmpty()) {
+            mname.setError("Please enter full name");
+            return false;
+        } else {
+            mname.setError(null);
+            return true;
+        }
+
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -140,11 +249,12 @@ public class MapsFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         binding = FragmentMapsBinding.inflate(getLayoutInflater(), container, false);
-       view = binding.getRoot();
+        view = binding.getRoot();
 
 
+        Places.initialize(view.getContext(), "AIzaSyD-5uq5mMzjJZQ-Bqu5ZKCdj08E1YxsuRk");
 
-        Places.initialize(getContext() , "AIzaSyD-5uq5mMzjJZQ-Bqu5ZKCdj08E1YxsuRk");
+        PlacesClient placesClient = Places.createClient(view.getContext());
 
         mLocationClient = LocationServices.getFusedLocationProviderClient(getContext());
         getCurrentLoc();
@@ -155,11 +265,26 @@ public class MapsFragment extends Fragment {
             }
         });
 
+        AutocompleteSupportFragment autocompleteSupportFragment = (AutocompleteSupportFragment) getChildFragmentManager().findFragmentById(R.id.autocomplete_fragment);
+        autocompleteSupportFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME));
+        autocompleteSupportFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(@NonNull Place place) {
 
+                Toast.makeText(view.getContext(), place.getName() + " , " + place.getId(), Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onError(@NonNull Status status) {
+
+            }
+        });
 
 
         return view;
     }
+
 
     @SuppressLint("MissingPermission")
     private void getCurrentLoc() {
@@ -229,7 +354,7 @@ public class MapsFragment extends Fragment {
         mMap.addMarker(new MarkerOptions()
                 .position(latLng)
                 .title("Current Location")
-        .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_dot )))
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_dot)))
         ;
 
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 18);

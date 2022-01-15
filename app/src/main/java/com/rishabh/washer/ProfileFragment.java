@@ -66,6 +66,12 @@ public class ProfileFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_nav_profile_to_editProfileFragment);
             }
         });
+        binding.savedAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_nav_profile_to_savedAddressFragment);
+            }
+        });
         return  view ;
     }
 }

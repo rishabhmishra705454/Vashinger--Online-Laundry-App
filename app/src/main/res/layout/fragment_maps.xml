@@ -31,7 +31,24 @@
             android:textColor="@color/white"
             android:textSize="18dp" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_search"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:tint="@color/white"
+            android:layout_marginRight="16dp"/>
+
     </RelativeLayout>
+
+    <fragment
+        android:id="@+id/autocomplete_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+        />
 
     <RelativeLayout
         android:layout_width="match_parent"

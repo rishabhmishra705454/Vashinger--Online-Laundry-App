@@ -26,11 +26,17 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("ProfileDetail", MODE_PRIVATE);
+
         mAuth = FirebaseAuth.getInstance();
         //checking user is logged in or not
         if (mAuth.getCurrentUser() == null) {
 
             Navigation.findNavController(view).navigate(R.id.loginFragment2);
+        }
+
+        else if(!sharedPreferences.contains("phoneNo")){
+            Navigation.findNavController(view).navigate(R.id.userDetailFragment2);
         }
 
     }

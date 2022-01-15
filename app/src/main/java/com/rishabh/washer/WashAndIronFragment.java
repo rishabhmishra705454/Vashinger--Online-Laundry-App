@@ -121,6 +121,7 @@ public class WashAndIronFragment extends Fragment {
 
                     addCartModelArrayList.add(cartModel);
                 }
+
                 binding.totalPriceText.setText( "Price " + "- " +Integer.toString(totalPrice));
 
                 AddCartAdapter addCartAdapter = new AddCartAdapter(getActivity() , addCartModelArrayList);

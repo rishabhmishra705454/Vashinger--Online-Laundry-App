@@ -17,6 +17,7 @@
             android:src="@drawable/clip_completed_successfully" />
 
         <TextView
+            android:id="@+id/sucess"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/rubik_black"

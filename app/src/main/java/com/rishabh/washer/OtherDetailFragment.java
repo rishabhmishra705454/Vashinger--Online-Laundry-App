@@ -1,17 +1,13 @@
 package com.rishabh.washer;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.LocationManager;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,32 +16,26 @@ import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.google.android.material.datepicker.MaterialDatePicker;
-import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
-import com.karumi.dexter.Dexter;
-import com.karumi.dexter.PermissionToken;
-import com.karumi.dexter.listener.PermissionDeniedResponse;
-import com.karumi.dexter.listener.PermissionGrantedResponse;
-import com.karumi.dexter.listener.PermissionRequest;
-import com.karumi.dexter.listener.single.PermissionListener;
 import com.rishabh.washer.databinding.FragmentOtherDetailBinding;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class OtherDetailFragment extends Fragment {
 
 
     int hour, minutes;
-
+    int numm;
     private FragmentOtherDetailBinding binding;
     View view;
 
+    String deliveryDate , pickupDate;
+
+    String deliveryTime , pickupTime;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,6 +44,7 @@ public class OtherDetailFragment extends Fragment {
         view = binding.getRoot();
 
 
+        binding.pickupNot.setVisibility(View.VISIBLE);
         // Setting pickup Address
         SharedPreferences setLocation = getActivity().getSharedPreferences("LOCATION", MODE_PRIVATE);
         if (setLocation.contains("address")) {
@@ -65,8 +56,12 @@ public class OtherDetailFragment extends Fragment {
             String pincode = setLocation.getString("pincode", "");
             String latitude = setLocation.getString("latitude", "");
             String longitude = setLocation.getString("longitude", "");
+            String fullname = setLocation.getString("fullName", "");
+            String phoneNo = setLocation.getString("phoneNo", "");
 
 
+            binding.mPhoneNo.setText(phoneNo);
+            binding.mfullName.setText(fullname);
             binding.deliveryNo.setVisibility(View.GONE);
             binding.deliveryYes.setVisibility(View.VISIBLE);
             binding.textView6.setText(address);
@@ -76,7 +71,6 @@ public class OtherDetailFragment extends Fragment {
 
         } else {
             binding.pickupYes.setVisibility(View.GONE);
-            binding.pickupNot.setVisibility(View.VISIBLE);
             binding.doneBtn.setEnabled(false);
         }
 
@@ -99,7 +93,7 @@ public class OtherDetailFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Navigation.findNavController(view).navigate(R.id.action_otherDetailFragment_to_mapsFragment);
+                Navigation.findNavController(view).navigate(R.id.action_otherDetailFragment_to_savedAddressFragment);
             }
         });
 
@@ -112,224 +106,711 @@ public class OtherDetailFragment extends Fragment {
         });
         //setting delivery address
 
+        //Pick up schedule setup
+        int i ;
+        Calendar cal = Calendar.getInstance();
+        for (i = 0; i <= 6; i++) {
+            if (i == 0) {
+                cal.add(Calendar.DATE, 0);
+                SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                SimpleDateFormat mDate = new SimpleDateFormat("d");
+                SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                String fmonth = mMonth.format(cal.getTime());
+                String fdate = mDate.format(cal.getTime());
+                String fday = mDay.format(cal.getTime());
 
+                binding.firstMonth.setText(fmonth);
+                binding.firstDate.setText(fdate);
+                binding.firstDay.setText(fday);
 
-        //pickup date
+                String month =  binding.firstMonth.getText().toString();
+                String date =  binding.firstDate.getText().toString();
+                String day =  binding.firstDay.getText().toString();
 
-        final Calendar calendar = Calendar.getInstance();
-        final int day = calendar.get(Calendar.DAY_OF_MONTH);
-        final int year = calendar.get(Calendar.YEAR);
-        final int month = calendar.get(Calendar.MONTH);
+                pickupDate = day + ", "+ month+ " " + date;
+            }
+            if (i == 1) {
+                cal.add(Calendar.DATE, 1);
+                SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                SimpleDateFormat mDate = new SimpleDateFormat("d");
+                SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                String fmonth = mMonth.format(cal.getTime());
+                String fdate = mDate.format(cal.getTime());
+                String fday = mDay.format(cal.getTime());
 
+                binding.secondMonth.setText(fmonth);
+                binding.secondDate.setText(fdate);
+                binding.secondDay.setText(fday);
+            }
+            if (i == 2) {
+                cal.add(Calendar.DATE, 1);
+                SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                SimpleDateFormat mDate = new SimpleDateFormat("d");
+                SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                String fmonth = mMonth.format(cal.getTime());
+                String fdate = mDate.format(cal.getTime());
+                String fday = mDay.format(cal.getTime());
 
-        binding.pickupDateButton.setOnClickListener(new View.OnClickListener() {
+                binding.thirdMonth.setText(fmonth);
+                binding.thirdDate.setText(fdate);
+                binding.thirdDay.setText(fday);
+            }
+            if (i == 3) {
+                cal.add(Calendar.DATE, 1);
+                SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                SimpleDateFormat mDate = new SimpleDateFormat("d");
+                SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                String fmonth = mMonth.format(cal.getTime());
+                String fdate = mDate.format(cal.getTime());
+                String fday = mDay.format(cal.getTime());
+
+                binding.forthMonth.setText(fmonth);
+                binding.forthDate.setText(fdate);
+                binding.forthDay.setText(fday);
+            }
+            if (i == 4) {
+                cal.add(Calendar.DATE, 1);
+                SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                SimpleDateFormat mDate = new SimpleDateFormat("d");
+                SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                String fmonth = mMonth.format(cal.getTime());
+                String fdate = mDate.format(cal.getTime());
+                String fday = mDay.format(cal.getTime());
+
+                binding.fifthMonth.setText(fmonth);
+                binding.fifthDate.setText(fdate);
+                binding.fifthDay.setText(fday);
+            }
+        }
+
+        binding.piklay1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                numm = 2;
+                binding.piklay1.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.card_background_layout));
+                binding.piklay2.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.piklay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.piklay4.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.piklay5.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(getContext());
+                Calendar cal2 = Calendar.getInstance();
+                for (int j = 0; j <= 6; j++) {
+                    if (j == 0) {
+                        cal2.add(Calendar.DATE, numm);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
 
-                datePickerDialog =new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-
-                        String pickupDate = dayOfMonth + "/" + (month +1) + "/" + year;
-                        binding.pickupDateButton.setText(pickupDate);
+                        binding.firstMonth2.setText(fmonth);
+                        binding.firstDate2.setText(fdate);
+                        binding.firstDay2.setText(fday);
                     }
-                }, year , month , day);
+                    if (j == 1) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
 
-                datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
-                datePickerDialog.show();
-            }
-        });
-
-/*
-        MaterialDatePicker.Builder materialDateBuilder = MaterialDatePicker.Builder.datePicker();
-        materialDateBuilder.setTitleText("SELECT A DATE");
-        final MaterialDatePicker materialDatePicker1 = materialDateBuilder.build();
-
-        binding.pickupDateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                materialDatePicker1.show(getChildFragmentManager(), "MATERIAL_DATE_PICKER");
-
-
-            }
-        });
-
-        materialDatePicker1.addOnPositiveButtonClickListener(
-                new MaterialPickerOnPositiveButtonClickListener() {
-                    @SuppressLint("SetTextI18n")
-                    @Override
-                    public void onPositiveButtonClick(Object selection) {
-
-                        binding.pickupDateButton.setText(materialDatePicker1.getHeaderText());
-
+                        binding.secondMonth2.setText(fmonth);
+                        binding.secondDate2.setText(fdate);
+                        binding.secondDay2.setText(fday);
                     }
-                });
+                    if (j == 2) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
 
- */
-
-
-        //pickup time
-
-        binding.pickupTimeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(),
-                        new TimePickerDialog.OnTimeSetListener() {
-                            @Override
-                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-
-                                //initialize
-                                hour = hourOfDay;
-                                minutes = minute;
-
-                                Calendar calendar = Calendar.getInstance();
-                                calendar.set(0, 0, 0, hour, minutes);
-                                binding.pickupTimeButton.setText(DateFormat.format("hh:mm aa", calendar));
-
-                            }
-                        }, 12, 0, false);
-
-                timePickerDialog.updateTime(hour, minutes);
-                timePickerDialog.show();
-            }
-        });
-
-        //delivery date
-
-        binding.deliveryDateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                DatePickerDialog datePickerDialog = new DatePickerDialog(getContext());
-
-                datePickerDialog =new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-
-                        String pickupDate = dayOfMonth + "/" + (month +1) + "/" + year;
-                        binding.deliveryDateButton.setText(pickupDate);
+                        binding.thirdMonth2.setText(fmonth);
+                        binding.thirdDate2.setText(fdate);
+                        binding.thirdDay2.setText(fday);
                     }
-                }, year , month , day);
+                    if (j == 3) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
 
-                datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
-                datePickerDialog.show();
-            }
-        });
-
-/*
-        MaterialDatePicker.Builder materialDateBuilder1 = MaterialDatePicker.Builder.datePicker();
-        materialDateBuilder1.setTitleText("SELECT A DATE");
-        final MaterialDatePicker materialDatePicker2 = materialDateBuilder1.build();
-
-        binding.deliveryDateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                materialDatePicker2.show(getChildFragmentManager(), "MATERIAL_DATE_PICKER");
-
-            }
-        });
-
-        materialDatePicker2.addOnPositiveButtonClickListener(
-                new MaterialPickerOnPositiveButtonClickListener() {
-                    @SuppressLint("SetTextI18n")
-                    @Override
-                    public void onPositiveButtonClick(Object selection) {
-
-                        binding.deliveryDateButton.setText(materialDatePicker2.getHeaderText());
-
+                        binding.forthMonth2.setText(fmonth);
+                        binding.forthDate2.setText(fdate);
+                        binding.forthDay2.setText(fday);
                     }
-                });
+                    if (j == 4) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
 
- */
+                        binding.fifthMonth2.setText(fmonth);
+                        binding.fifthDate2.setText(fdate);
+                        binding.fifthDay2.setText(fday);
+                    }
+                }
 
+                binding.dellay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay2.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay4.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay5.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
 
-        //delivery time
+               String month =  binding.firstMonth.getText().toString();
+               String date =  binding.firstDate.getText().toString();
+               String day =  binding.firstDay.getText().toString();
 
-
-        binding.deliveryTimeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TimePickerDialog timePickerDialog1 = new TimePickerDialog(getContext(),
-                        new TimePickerDialog.OnTimeSetListener() {
-                            @Override
-                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-
-                                //initialize
-                                hour = hourOfDay;
-                                minutes = minute;
-
-                                Calendar calendar = Calendar.getInstance();
-                                calendar.set(0, 0, 0, hour, minutes);
-                                binding.deliveryTimeButton.setText(DateFormat.format("hh:mm aa", calendar));
-
-                            }
-                        }, 12, 0, false);
-
-                timePickerDialog1.updateTime(hour, minutes);
-                timePickerDialog1.show();
+                pickupDate = day + ", "+ month+ " " + date;
             }
         });
+        binding.piklay2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                numm=3;
+                binding.piklay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.piklay2.setBackground(ContextCompat.getDrawable(getContext(),R.drawable.card_background_layout));
+                binding.piklay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.piklay4.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.piklay5.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                Calendar cal2 = Calendar.getInstance();
+                for (int j = 0; j <= 6; j++) {
+                    if (j == 0) {
+                        cal2.add(Calendar.DATE, numm);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.firstMonth2.setText(fmonth);
+                        binding.firstDate2.setText(fdate);
+                        binding.firstDay2.setText(fday);
+                    }
+                    if (j == 1) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.secondMonth2.setText(fmonth);
+                        binding.secondDate2.setText(fdate);
+                        binding.secondDay2.setText(fday);
+                    }
+                    if (j == 2) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.thirdMonth2.setText(fmonth);
+                        binding.thirdDate2.setText(fdate);
+                        binding.thirdDay2.setText(fday);
+                    }
+                    if (j == 3) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.forthMonth2.setText(fmonth);
+                        binding.forthDate2.setText(fdate);
+                        binding.forthDay2.setText(fday);
+                    }
+                    if (j == 4) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.fifthMonth2.setText(fmonth);
+                        binding.fifthDate2.setText(fdate);
+                        binding.fifthDay2.setText(fday);
+                    }
+                }
+                binding.dellay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay2.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay4.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay5.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+
+
+                String month =  binding.secondMonth.getText().toString();
+                String date =  binding.secondDate.getText().toString();
+                String day =  binding.secondDay.getText().toString();
+
+                pickupDate = day + ", "+ month+ " " + date;
+            }
+        });
+        binding.piklay3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numm=4;
+                binding.piklay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.piklay2.setBackground(ContextCompat.getDrawable(getContext(),R.color.white));
+                binding.piklay3.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.card_background_layout));
+                binding.piklay4.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.piklay5.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                Calendar cal2 = Calendar.getInstance();
+                for (int j = 0; j <= 6; j++) {
+                    if (j == 0) {
+                        cal2.add(Calendar.DATE, numm);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.firstMonth2.setText(fmonth);
+                        binding.firstDate2.setText(fdate);
+                        binding.firstDay2.setText(fday);
+                    }
+                    if (j == 1) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.secondMonth2.setText(fmonth);
+                        binding.secondDate2.setText(fdate);
+                        binding.secondDay2.setText(fday);
+                    }
+                    if (j == 2) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.thirdMonth2.setText(fmonth);
+                        binding.thirdDate2.setText(fdate);
+                        binding.thirdDay2.setText(fday);
+                    }
+                    if (j == 3) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.forthMonth2.setText(fmonth);
+                        binding.forthDate2.setText(fdate);
+                        binding.forthDay2.setText(fday);
+                    }
+                    if (j == 4) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.fifthMonth2.setText(fmonth);
+                        binding.fifthDate2.setText(fdate);
+                        binding.fifthDay2.setText(fday);
+                    }
+                }
+                binding.dellay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay2.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay4.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay5.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+
+
+                String month =  binding.thirdMonth.getText().toString();
+                String date =  binding.thirdDate.getText().toString();
+                String day =  binding.thirdDay.getText().toString();
+
+                pickupDate = day + ", "+ month+ " " + date;
+            }
+        });
+        binding.piklay4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numm = 5;
+                binding.piklay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.piklay2.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.piklay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.piklay4.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.card_background_layout));
+                binding.piklay5.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                Calendar cal2 = Calendar.getInstance();
+                for (int j = 0; j <= 6; j++) {
+                    if (j == 0) {
+                        cal2.add(Calendar.DATE, numm);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.firstMonth2.setText(fmonth);
+                        binding.firstDate2.setText(fdate);
+                        binding.firstDay2.setText(fday);
+                    }
+                    if (j == 1) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.secondMonth2.setText(fmonth);
+                        binding.secondDate2.setText(fdate);
+                        binding.secondDay2.setText(fday);
+                    }
+                    if (j == 2) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.thirdMonth2.setText(fmonth);
+                        binding.thirdDate2.setText(fdate);
+                        binding.thirdDay2.setText(fday);
+                    }
+                    if (j == 3) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.forthMonth2.setText(fmonth);
+                        binding.forthDate2.setText(fdate);
+                        binding.forthDay2.setText(fday);
+                    }
+                    if (j == 4) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.fifthMonth2.setText(fmonth);
+                        binding.fifthDate2.setText(fdate);
+                        binding.fifthDay2.setText(fday);
+                    }
+                }
+                binding.dellay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay2.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay4.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay5.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+
+
+                String month =  binding.forthMonth.getText().toString();
+                String date =  binding.forthDate.getText().toString();
+                String day =  binding.forthDay.getText().toString();
+
+                pickupDate = day + ", "+ month+ " " + date;
+            }
+        });
+        binding.piklay5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                numm = 6;
+                binding.piklay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.piklay2.setBackground(ContextCompat.getDrawable(getContext(),R.color.white));
+                binding.piklay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.piklay4.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.piklay5.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.card_background_layout));
+                Calendar cal2 = Calendar.getInstance();
+                for (int j = 0; j <= 6; j++) {
+                    if (j == 0) {
+                        cal2.add(Calendar.DATE, numm);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.firstMonth2.setText(fmonth);
+                        binding.firstDate2.setText(fdate);
+                        binding.firstDay2.setText(fday);
+                    }
+                    if (j == 1) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.secondMonth2.setText(fmonth);
+                        binding.secondDate2.setText(fdate);
+                        binding.secondDay2.setText(fday);
+                    }
+                    if (j == 2) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.thirdMonth2.setText(fmonth);
+                        binding.thirdDate2.setText(fdate);
+                        binding.thirdDay2.setText(fday);
+                    }
+                    if (j == 3) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.forthMonth2.setText(fmonth);
+                        binding.forthDate2.setText(fdate);
+                        binding.forthDay2.setText(fday);
+                    }
+                    if (j == 4) {
+                        cal2.add(Calendar.DATE, 1);
+                        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                        SimpleDateFormat mDate = new SimpleDateFormat("d");
+                        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                        String fmonth = mMonth.format(cal2.getTime());
+                        String fdate = mDate.format(cal2.getTime());
+                        String fday = mDay.format(cal2.getTime());
+
+                        binding.fifthMonth2.setText(fmonth);
+                        binding.fifthDate2.setText(fdate);
+                        binding.fifthDay2.setText(fday);
+                    }
+                }
+                binding.dellay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay2.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay4.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay5.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+
+
+                String month =  binding.fifthMonth.getText().toString();
+                String date =  binding.fifthDate.getText().toString();
+                String day =  binding.fifthDay.getText().toString();
+
+                pickupDate = day + ", "+ month+ " " + date;
+            }
+        });
+
+        //delivery sedule setup
+
+        Calendar cal2 = Calendar.getInstance();
+        for (int j = 0; j <= 6; j++) {
+            if (j == 0) {
+                cal2.add(Calendar.DATE, 2);
+                SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                SimpleDateFormat mDate = new SimpleDateFormat("d");
+                SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                String fmonth = mMonth.format(cal2.getTime());
+                String fdate = mDate.format(cal2.getTime());
+                String fday = mDay.format(cal2.getTime());
+
+                binding.firstMonth2.setText(fmonth);
+                binding.firstDate2.setText(fdate);
+                binding.firstDay2.setText(fday);
+
+
+
+            }
+            if (j == 1) {
+                cal2.add(Calendar.DATE, 1);
+                SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                SimpleDateFormat mDate = new SimpleDateFormat("d");
+                SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                String fmonth = mMonth.format(cal2.getTime());
+                String fdate = mDate.format(cal2.getTime());
+                String fday = mDay.format(cal2.getTime());
+
+                binding.secondMonth2.setText(fmonth);
+                binding.secondDate2.setText(fdate);
+                binding.secondDay2.setText(fday);
+            }
+            if (j == 2) {
+                cal2.add(Calendar.DATE, 1);
+                SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                SimpleDateFormat mDate = new SimpleDateFormat("d");
+                SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                String fmonth = mMonth.format(cal2.getTime());
+                String fdate = mDate.format(cal2.getTime());
+                String fday = mDay.format(cal2.getTime());
+
+                binding.thirdMonth2.setText(fmonth);
+                binding.thirdDate2.setText(fdate);
+                binding.thirdDay2.setText(fday);
+            }
+            if (j == 3) {
+                cal2.add(Calendar.DATE, 1);
+                SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                SimpleDateFormat mDate = new SimpleDateFormat("d");
+                SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                String fmonth = mMonth.format(cal2.getTime());
+                String fdate = mDate.format(cal2.getTime());
+                String fday = mDay.format(cal2.getTime());
+
+                binding.forthMonth2.setText(fmonth);
+                binding.forthDate2.setText(fdate);
+                binding.forthDay2.setText(fday);
+            }
+            if (j == 4) {
+                cal2.add(Calendar.DATE, 1);
+                SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+                SimpleDateFormat mDate = new SimpleDateFormat("d");
+                SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+                String fmonth = mMonth.format(cal2.getTime());
+                String fdate = mDate.format(cal2.getTime());
+                String fday = mDay.format(cal2.getTime());
+
+                binding.fifthMonth2.setText(fmonth);
+                binding.fifthDate2.setText(fdate);
+                binding.fifthDay2.setText(fday);
+            }
+        }
+
+
+        binding.dellay1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.dellay1.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.card_background_layout));
+                binding.dellay2.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay4.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay5.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+
+                String month =  binding.firstMonth2.getText().toString();
+                String date =  binding.firstDate2.getText().toString();
+                String day =  binding.firstDay2.getText().toString();
+
+                deliveryDate = day + ", "+ month+ " " + date;
+
+            }
+        });
+        binding.dellay2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                binding.dellay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay2.setBackground(ContextCompat.getDrawable(getContext(),R.drawable.card_background_layout));
+                binding.dellay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay4.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay5.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                String month =  binding.secondMonth2.getText().toString();
+                String date =  binding.secondDate2.getText().toString();
+                String day =  binding.secondDay2.getText().toString();
+
+                deliveryDate = day + ", "+ month+ " " + date;
+            }
+        });
+        binding.dellay3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.dellay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay2.setBackground(ContextCompat.getDrawable(getContext(),R.color.white));
+                binding.dellay3.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.card_background_layout));
+                binding.dellay4.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay5.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+
+                String month =  binding.thirdMonth2.getText().toString();
+                String date =  binding.thirdDate2.getText().toString();
+                String day =  binding.thirdDay2.getText().toString();
+
+                deliveryDate = day + ", "+ month+ " " + date;
+            }
+        });
+        binding.dellay4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.dellay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay2.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay4.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.card_background_layout));
+                binding.dellay5.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+
+                String month =  binding.forthMonth2.getText().toString();
+                String date =  binding.forthDate2.getText().toString();
+                String day =  binding.forthDay2.getText().toString();
+
+                deliveryDate = day + ", "+ month+ " " + date;
+            }
+        });
+        binding.dellay5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                binding.dellay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay2.setBackground(ContextCompat.getDrawable(getContext(),R.color.white));
+                binding.dellay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay4.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay5.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.card_background_layout));
+
+                String month =  binding.fifthMonth2.getText().toString();
+                String date =  binding.fifthDate2.getText().toString();
+                String day =  binding.fifthDay2.getText().toString();
+
+                deliveryDate = day + ", "+ month+ " " + date;
+            }
+        });
+
+
+
+
 
         binding.selectPickAddressText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Dexter.withContext(getContext())
-                        .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-                        .withListener(new PermissionListener() {
-                            @Override
-                            public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
-
-                                if (isLocationEnabled()) {
-                                    Navigation.findNavController(view).navigate(R.id.action_otherDetailFragment_to_mapsFragment);
-
-                                } else {
-                                    android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(getContext())
-                                            .setTitle("GPS Permission")
-                                            .setMessage("GPS is required for this app to work .  Please enable GPS")
-                                            .setPositiveButton("yes", ((dialog, which) -> {
-                                                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                                                startActivity(intent);
-                                            }))
-                                            .setCancelable(true)
-                                            .show();
-                                }
+                Navigation.findNavController(view).navigate(R.id.action_otherDetailFragment_to_savedAddressFragment);
 
 
-                            }
-
-                            @Override
-                            public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
-
-                                if (permissionDeniedResponse.isPermanentlyDenied()) {
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                                    builder.setTitle("Permission Denied")
-                                            .setMessage("Permission to access device location is permanently denied .you need to go setting to allow the permission")
-                                            .setNegativeButton("Cancel", null)
-                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                                @Override
-                                                public void onClick(DialogInterface dialogInterface, int i) {
-                                                    Intent intent = new Intent();
-                                                    intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                                                    intent.setData(Uri.fromParts("package", getActivity().getPackageName(), null));
-                                                    getActivity().startActivity(intent);
-                                                }
-                                            })
-                                            .show();
-                                } else {
-                                    Toast.makeText(getContext(), "Permission Denied", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-
-                            @Override
-                            public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
-
-                                permissionToken.continuePermissionRequest();
-                            }
-                        })
-                        .check();
             }
 
 
@@ -338,17 +819,34 @@ public class OtherDetailFragment extends Fragment {
         binding.doneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String pickupDate = "Select Pickup Date";
-                String pickupTime = "Select Pickup Time";
-                String deliveryDate = "Select Delivery Date";
-                String deliveryTime = "Select Delivery Time";
-                if (binding.pickupDateButton.getText().toString().equals(pickupDate)) {
+
+
+                if (binding.firstPickupTiming.isChecked()){
+                    pickupTime = "6 AM - 9AM";
+                }if (binding.secondPickupTiming.isChecked()){
+                    pickupTime = "9 AM - 12 AM";
+                }if (binding.thirdPickupTiming.isChecked()){
+                    pickupTime = "2 PM - 5 PM";
+                }if (binding.fourthPickupTiming.isChecked()){
+                    pickupTime = "5 PM - 9 PM";
+                }
+
+                if (binding.firstDeliveryTiming.isChecked()){
+                    deliveryTime = "6 AM - 9AM";
+                }if (binding.secondDeliveryTiming.isChecked()){
+                    deliveryTime = "9 AM - 12 AM";
+                }if (binding.thirdDeliveryTiming.isChecked()){
+                    deliveryTime = "2 PM - 5 PM";
+                }if (binding.fourthDeliveryTiming.isChecked()){
+                    deliveryTime = "5 PM - 9 PM";
+                }
+                if (pickupDate ==null) {
                     Toast.makeText(getContext(), "Select Pickup date", Toast.LENGTH_SHORT).show();
-                } else if (binding.pickupTimeButton.getText().toString().equals(pickupTime)) {
+                } else if (pickupTime==null) {
                     Toast.makeText(getContext(), "Select Pickup Time", Toast.LENGTH_SHORT).show();
-                } else if (binding.deliveryDateButton.getText().toString().equals(deliveryDate)) {
+                } else if (deliveryDate == null) {
                     Toast.makeText(getContext(), "Select Delivery Date", Toast.LENGTH_SHORT).show();
-                } else if (binding.deliveryTimeButton.getText().toString().equals(deliveryTime)) {
+                } else if (deliveryTime==null) {
                     Toast.makeText(getContext(), "Select Delivery Time", Toast.LENGTH_SHORT).show();
                 } else {
 
@@ -358,6 +856,10 @@ public class OtherDetailFragment extends Fragment {
                     String pincode = setLocation.getString("pincode", "");
                     String latitude = setLocation.getString("latitude", "");
                     String longitude = setLocation.getString("longitude", "");
+                    String phoneNo = setLocation.getString("phoneNo", "");
+                    String houseNo = setLocation.getString("houseNo", "");
+                    String landmark = setLocation.getString("landmark", "");
+                    String fullName = setLocation.getString("fullName", "");
 
                     Bundle detail = new Bundle();
                     detail.putString("colorPreference", getArguments().getString("colorPreference"));
@@ -372,18 +874,34 @@ public class OtherDetailFragment extends Fragment {
                     detail.putString("pincode", pincode);
                     detail.putString("latitude", latitude);
                     detail.putString("longitude", longitude);
+                    detail.putString("phoneNo",phoneNo);
+                    detail.putString("houseNo" ,houseNo);
+                    detail.putString("landmark" , landmark);
+                    detail.putString("fullName",fullName);
 
-                    detail.putString("pickupDate", binding.pickupDateButton.getText().toString());
-                    detail.putString("pickupTime", binding.pickupTimeButton.getText().toString());
-                    detail.putString("deliveryDate", binding.deliveryDateButton.getText().toString());
-                    detail.putString("deliveryTime", binding.deliveryTimeButton.getText().toString());
 
 
-                    detail.putString("totalPrice" , getArguments().getString("totalPrice"));
-                    detail.putString("totalItem" , getArguments().getString("totalItem"));
-                    detail.putString("serviceType" ,getArguments().getString("serviceType")) ;
 
-                    Navigation.findNavController(view).navigate(R.id.action_otherDetailFragment_to_checkoutDetailFragment , detail);
+                    detail.putString("pickupDate", pickupDate);
+
+                    detail.putString("deliveryDate", deliveryDate);
+
+
+
+
+
+                    detail.putString("pickupTime", pickupTime);
+                    detail.putString("deliveryTime", deliveryTime);
+
+
+
+                    detail.putString("totalPrice", getArguments().getString("totalPrice"));
+                    detail.putString("totalItem", getArguments().getString("totalItem"));
+                    detail.putString("serviceType", getArguments().getString("serviceType"));
+
+
+
+                    Navigation.findNavController(view).navigate(R.id.action_otherDetailFragment_to_checkoutDetailFragment, detail);
                 }
 
 

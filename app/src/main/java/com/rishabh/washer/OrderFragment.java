@@ -17,6 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.rishabh.washer.adapter.AddCartAdapter;
 import com.rishabh.washer.adapter.DisplayOrderAdapter;
@@ -55,8 +56,9 @@ public class OrderFragment extends Fragment {
         binding.recyclerView.setLayoutManager(linearLayoutManager);
 
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("orderDetails").child(uid);
-        reference.addValueEventListener(new ValueEventListener() {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("orderDetails");
+        final Query itemFilter = reference.orderByChild("uid").equalTo(uid);
+        itemFilter.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

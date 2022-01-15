@@ -42,7 +42,8 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/doneBtn">
+            android:layout_above="@id/doneBtn"
+            android:layout_marginBottom="13dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,13 +60,15 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/pickupNot"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:visibility="visible">
 
                         <TextView
                             android:id="@+id/selectPickAddressText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="24dp"
+                            android:drawablePadding="5dp"
                             android:drawableTint="@color/purple"
                             android:fontFamily="@font/rubik_black"
                             android:text="Select Pickup Address"
@@ -75,8 +78,7 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:drawablePadding="5dp"/>
+                            app:layout_constraintTop_toTopOf="parent" />
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -99,14 +101,26 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
+                        <TextView
+                            android:id="@+id/mfullName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/rubik_bold"
+                            android:text="Rishabh mishra"
+                            android:textColor="@color/green"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
                         <ImageView
                             android:id="@+id/imageView4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
+                            android:layout_marginTop="8dp"
                             android:src="@drawable/ic_location"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                            app:layout_constraintTop_toBottomOf="@+id/mfullName" />
 
 
                         <TextView
@@ -133,6 +147,28 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
+
+                        <TextView
+                            android:id="@+id/mPhoneNotext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/rubik_medium"
+                            android:text="Phone :"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+                        <TextView
+                            android:id="@+id/mPhoneNo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/rubik_medium"
+                            android:text="7651824079"
+                            app:layout_constraintBottom_toBottomOf="@+id/mPhoneNotext"
+                            app:layout_constraintStart_toEndOf="@+id/mPhoneNotext"
+                            app:layout_constraintTop_toTopOf="@+id/mPhoneNotext" />
+
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
@@ -147,12 +183,13 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:background="@drawable/btn_background"
-                            android:src="@drawable/ic_delete"
                             android:padding="5dp"
+                            android:src="@drawable/ic_delete"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/textView6"
                             app:tint="@color/white" />
+
 
                         <ImageButton
                             android:id="@+id/editAddress"
@@ -161,8 +198,8 @@
                             android:layout_marginTop="8dp"
                             android:layout_marginEnd="16dp"
                             android:background="@drawable/btn_background"
-                            android:src="@drawable/ic_edit"
                             android:padding="5dp"
+                            android:src="@drawable/ic_edit"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/addresDelete"
                             app:layout_constraintTop_toBottomOf="@+id/textView6"
@@ -177,14 +214,14 @@
                     android:id="@+id/pickupCheckbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Same as pickup address"
-                    android:fontFamily="@font/rubik_medium"
-                    android:checked="true"
-                    android:enabled="true"
-                    android:clickable="false"
-                    android:textColor="@color/purple_light"
                     android:layout_gravity="end"
-                    android:layout_marginRight="16dp"/>
+                    android:layout_marginRight="16dp"
+                    android:checked="true"
+                    android:clickable="false"
+                    android:enabled="true"
+                    android:fontFamily="@font/rubik_medium"
+                    android:text="Same as pickup address"
+                    android:textColor="@color/purple_light" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -203,6 +240,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="24dp"
+                            android:drawablePadding="5dp"
                             android:drawableTint="@color/purple"
                             android:fontFamily="@font/rubik_black"
                             android:text="Select Delivery Address"
@@ -212,8 +250,7 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:drawablePadding="5dp"/>
+                            app:layout_constraintTop_toTopOf="parent" />
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -251,8 +288,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:fontFamily="@font/rubik_black"
-                            android:textSize="16sp"
                             android:textColor="@color/pink"
+                            android:textSize="16sp"
                             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
                             app:layout_constraintStart_toEndOf="@+id/imageView2"
                             app:layout_constraintTop_toTopOf="@+id/imageView2" />
@@ -276,11 +313,354 @@
                             app:tint="@color/pink" />
 
 
-
-
-
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    app:cardCornerRadius="16dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/pickupTimeingText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_bold"
+                            android:text="Pickup Schedule"
+                            android:textColor="@color/black"
+                            android:textSize="16dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <HorizontalScrollView
+                            android:id="@+id/horizontalScrollView"
+                            android:layout_width="match_parent"
+
+                            android:layout_height="100dp"
+                            android:layout_marginTop="8dp"
+                            android:scrollbarSize="0dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/pickupTimeingText">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp"
+                                android:orientation="horizontal">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="8dp"
+                                    app:cardCornerRadius="12dp">
+
+                                    <LinearLayout
+                                        android:id="@+id/piklay1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:background="@drawable/card_background_layout"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/firstMonth"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:textColor="@color/purple" />
+
+                                        <TextView
+                                            android:id="@+id/firstDate"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_bold"
+                                            android:padding="2dp"
+                                            android:text="15"
+                                            android:textColor="@color/purple"
+                                            android:textSize="16dp" />
+
+                                        <TextView
+                                            android:id="@+id/firstDay"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Fri"
+                                            android:textColor="@color/purple" />
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="8dp"
+                                    app:cardCornerRadius="12dp">
+
+                                    <LinearLayout
+                                        android:id="@+id/piklay2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/secondMonth"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Dec"
+                                            android:textColor="@color/purple" />
+
+                                        <TextView
+                                            android:id="@+id/secondDate"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_bold"
+                                            android:padding="2dp"
+                                            android:text="15"
+                                            android:textColor="@color/purple"
+                                            android:textSize="16dp" />
+
+                                        <TextView
+                                            android:id="@+id/secondDay"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Fri"
+                                            android:textColor="@color/purple" />
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="8dp"
+                                    app:cardCornerRadius="12dp">
+
+                                    <LinearLayout
+                                        android:id="@+id/piklay3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/thirdMonth"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Dec"
+                                            android:textColor="@color/purple" />
+
+                                        <TextView
+                                            android:id="@+id/thirdDate"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_bold"
+                                            android:padding="2dp"
+                                            android:text="15"
+                                            android:textColor="@color/purple"
+                                            android:textSize="16dp" />
+
+                                        <TextView
+                                            android:id="@+id/thirdDay"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Fri"
+                                            android:textColor="@color/purple" />
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="8dp"
+                                    app:cardCornerRadius="12dp">
+
+                                    <LinearLayout
+                                        android:id="@+id/piklay4"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/forthMonth"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Dec"
+                                            android:textColor="@color/purple" />
+
+                                        <TextView
+                                            android:id="@+id/forthDate"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_bold"
+                                            android:padding="2dp"
+                                            android:text="15"
+                                            android:textColor="@color/purple"
+                                            android:textSize="16dp" />
+
+                                        <TextView
+                                            android:id="@+id/forthDay"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Fri"
+                                            android:textColor="@color/purple" />
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="8dp"
+                                    app:cardCornerRadius="12dp">
+
+                                    <LinearLayout
+                                        android:id="@+id/piklay5"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/fifthMonth"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Dec"
+                                            android:textColor="@color/purple" />
+
+                                        <TextView
+                                            android:id="@+id/fifthDate"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_bold"
+                                            android:padding="2dp"
+                                            android:text="15"
+                                            android:textColor="@color/purple"
+                                            android:textSize="16dp" />
+
+                                        <TextView
+                                            android:id="@+id/fifthDay"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Fri"
+                                            android:textColor="@color/purple" />
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+
+                            </LinearLayout>
+
+                        </HorizontalScrollView>
+
+
+                        <TextView
+                            android:id="@+id/textView30"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/rubik_bold"
+                            android:text="Timing"
+                            android:textColor="@color/purple"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView30">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <RadioGroup
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+
+                                    <RadioButton
+                                        android:id="@+id/firstPickupTiming"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/rubik_medium"
+                                        android:text="6 Am - 9 AM"
+                                        android:textColor="@color/purple" />
+
+                                    <RadioButton
+                                        android:id="@+id/secondPickupTiming"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/rubik_medium"
+                                        android:text="9 AM - 12 AM"
+                                        android:textColor="@color/purple" />
+
+                                    <RadioButton
+                                        android:id="@+id/thirdPickupTiming"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+
+                                        android:fontFamily="@font/rubik_medium"
+                                        android:text="2 PM - 5 PM"
+                                        android:textColor="@color/purple" />
+
+                                    <RadioButton
+                                        android:id="@+id/fourthPickupTiming"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+
+                                        android:fontFamily="@font/rubik_medium"
+                                        android:text="5 PM - 9 PM"
+                                        android:textColor="@color/purple" />
+
+                                </RadioGroup>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.cardview.widget.CardView>
 
@@ -296,93 +676,337 @@
                         android:padding="16dp">
 
                         <TextView
-                            android:id="@+id/textView12"
+                            android:id="@+id/deliveryTimeingText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/rubik_bold"
-                            android:text="Pickup Timing"
+                            android:text="Delivery Schedule"
                             android:textColor="@color/black"
                             android:textSize="16dp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/pickupDateButton"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:drawableEnd="@drawable/ic_schedule"
-                            android:text="Select Pickup Date"
 
+                        <HorizontalScrollView
+                            android:id="@+id/horizontalScrollView2"
+                            android:layout_width="match_parent"
+
+                            android:layout_height="100dp"
+                            android:layout_marginTop="8dp"
+                            android:scrollbarSize="0dp"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/pickupTimeButton"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:drawableEnd="@drawable/ic_schedule"
-                            android:text="Select Pickup Time"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/pickupDateButton" />
+                            app:layout_constraintTop_toBottomOf="@+id/deliveryTimeingText">
 
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp"
+                                android:orientation="horizontal">
 
-                </androidx.cardview.widget.CardView>
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="8dp"
+                                    app:cardCornerRadius="12dp">
+
+                                    <LinearLayout
+
+                                        android:id="@+id/dellay1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                       android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/firstMonth2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Dec"
+                                            android:textColor="@color/purple" />
+
+                                        <TextView
+                                            android:id="@+id/firstDate2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_bold"
+                                            android:padding="2dp"
+                                            android:text="15"
+                                            android:textColor="@color/purple"
+                                            android:textSize="16dp" />
+
+                                        <TextView
+                                            android:id="@+id/firstDay2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Fri"
+                                            android:textColor="@color/purple" />
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="8dp"
+                                    app:cardCornerRadius="12dp">
+
+                                    <LinearLayout
+                                        android:id="@+id/dellay2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/secondMonth2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Dec"
+                                            android:textColor="@color/purple" />
+
+                                        <TextView
+                                            android:id="@+id/secondDate2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_bold"
+                                            android:padding="2dp"
+                                            android:text="15"
+                                            android:textColor="@color/purple"
+                                            android:textSize="16dp" />
+
+                                        <TextView
+                                            android:id="@+id/secondDay2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Fri"
+                                            android:textColor="@color/purple" />
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="8dp"
+                                    app:cardCornerRadius="12dp">
+
+                                    <LinearLayout
+                                        android:id="@+id/dellay3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/thirdMonth2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Dec"
+                                            android:textColor="@color/purple" />
+
+                                        <TextView
+                                            android:id="@+id/thirdDate2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_bold"
+                                            android:padding="2dp"
+                                            android:text="15"
+                                            android:textColor="@color/purple"
+                                            android:textSize="16dp" />
+
+                                        <TextView
+                                            android:id="@+id/thirdDay2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Fri"
+                                            android:textColor="@color/purple" />
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="8dp"
+                                    app:cardCornerRadius="12dp">
+
+                                    <LinearLayout
+                                        android:id="@+id/dellay4"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/forthMonth2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Dec"
+                                            android:textColor="@color/purple" />
+
+                                        <TextView
+                                            android:id="@+id/forthDate2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_bold"
+                                            android:padding="2dp"
+                                            android:text="15"
+                                            android:textColor="@color/purple"
+                                            android:textSize="16dp" />
+
+                                        <TextView
+                                            android:id="@+id/forthDay2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Fri"
+                                            android:textColor="@color/purple" />
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="8dp"
+                                    app:cardCornerRadius="12dp">
+
+                                    <LinearLayout
+                                        android:id="@+id/dellay5"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/fifthMonth2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Dec"
+                                            android:textColor="@color/purple" />
+
+                                        <TextView
+                                            android:id="@+id/fifthDate2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_bold"
+                                            android:padding="2dp"
+                                            android:text="15"
+                                            android:textColor="@color/purple"
+                                            android:textSize="16dp" />
+
+                                        <TextView
+                                            android:id="@+id/fifthDay2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/rubik_medium"
+                                            android:padding="2dp"
+                                            android:text="Fri"
+                                            android:textColor="@color/purple" />
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
 
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="16dp">
+                            </LinearLayout>
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="16dp">
+                        </HorizontalScrollView>
+
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/textView35"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:fontFamily="@font/rubik_bold"
-                            android:text="Delivery Timing"
-                            android:textColor="@color/black"
-                            android:textSize="16dp"
+                            android:text="Timing"
+                            android:textColor="@color/purple"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
 
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/deliveryDateButton"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                            android:layout_width="wrap_content"
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:drawableEnd="@drawable/ic_schedule"
-                            android:text="Select Delivery Date"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                            app:layout_constraintTop_toBottomOf="@+id/textView35">
 
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/deliveryTimeButton"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:drawableEnd="@drawable/ic_schedule"
-                            android:text="Select Delivery Time"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/deliveryDateButton" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
 
+                                <RadioGroup
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+
+                                    <RadioButton
+                                        android:id="@+id/firstDeliveryTiming"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/rubik_medium"
+                                        android:text="6 Am - 9 AM"
+                                        android:textColor="@color/purple" />
+
+                                    <RadioButton
+                                        android:id="@+id/secondDeliveryTiming"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/rubik_medium"
+                                        android:text="9 AM - 12 AM"
+                                        android:textColor="@color/purple" />
+
+                                    <RadioButton
+                                        android:id="@+id/thirdDeliveryTiming"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+
+                                        android:fontFamily="@font/rubik_medium"
+                                        android:text="2 PM - 5 PM"
+                                        android:textColor="@color/purple" />
+
+                                    <RadioButton
+                                        android:id="@+id/fourthDeliveryTiming"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+
+                                        android:fontFamily="@font/rubik_medium"
+                                        android:text="5 PM - 9 PM"
+                                        android:textColor="@color/purple" />
+
+                                </RadioGroup>
+
+                            </LinearLayout>
+                        </LinearLayout>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.cardview.widget.CardView>
+
+
 
 
 

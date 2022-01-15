@@ -31,6 +31,7 @@ public class DisplayOrderAdapter extends RecyclerView.Adapter<DisplayOrderAdapte
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.display_order_layout, parent, false);
 
         return new DisplayOrderAdapter.ViewHolder(view);
+
     }
 
     @Override

@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_nav_profile_to_editProfileFragment"
             app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_nav_profile_to_savedAddressFragment"
+            app:destination="@id/savedAddressFragment" />
     </fragment>
     <fragment
         android:id="@+id/washAndIronFragment"
@@ -54,8 +57,8 @@
             android:id="@+id/action_otherDetailFragment_to_checkoutDetailFragment"
             app:destination="@id/checkoutDetailFragment" />
         <action
-            android:id="@+id/action_otherDetailFragment_to_mapsFragment"
-            app:destination="@id/mapsFragment" />
+            android:id="@+id/action_otherDetailFragment_to_savedAddressFragment"
+            app:destination="@id/savedAddressFragment" />
     </fragment>
     <fragment
         android:id="@+id/checkoutDetailFragment"
@@ -109,11 +112,7 @@
         android:id="@+id/mapsFragment"
         android:name="com.rishabh.washer.MapsFragment"
         android:label="fragment_maps"
-        tools:layout="@layout/fragment_maps" >
-        <action
-            android:id="@+id/action_mapsFragment_to_otherDetailFragment"
-            app:destination="@id/otherDetailFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_maps" />
     <fragment
         android:id="@+id/sucessDialogFragment"
         android:name="com.rishabh.washer.SucessDialogFragment"
@@ -131,4 +130,13 @@
         android:name="com.rishabh.washer.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/savedAddressFragment"
+        android:name="com.rishabh.washer.SavedAddressFragment"
+        android:label="fragment_saved_address"
+        tools:layout="@layout/fragment_saved_address" >
+        <action
+            android:id="@+id/action_savedAddressFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
 </navigation>

@@ -1,9 +1,7 @@
 package com.rishabh.washer;
 
-import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,12 +12,18 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
+import com.razorpay.PaymentResultListener;
+import com.rishabh.washer.Interfaces.PaymentUpdateInterface;
+import com.rishabh.washer.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PaymentResultListener {
 
 
     BottomNavigationView bottomNavigationView;
+
+    PaymentUpdateInterface paymentUpdateInterface ;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         NavController navController = Navigation.findNavController(this, R.id.fragment_container);
-         bottomNavigationView = findViewById(R.id.bottom_nav_bar);
+
+
+        bottomNavigationView = findViewById(R.id.bottom_nav_bar);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
@@ -53,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
                     bottomNavigationView.setVisibility(View.GONE);
                 }else if (destination.getId() == R.id.editProfileFragment){
                     bottomNavigationView.setVisibility(View.GONE);
+                }else if (destination.getId()==R.id.savedAddressFragment){
+                    bottomNavigationView.setVisibility(View.GONE);
                 }
                 else {
                     bottomNavigationView.setVisibility(View.VISIBLE);
@@ -61,8 +69,30 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
     }
 
+
+    public void sendData2(PaymentUpdateInterface paymentUpdateInterface){
+        this.paymentUpdateInterface = paymentUpdateInterface;
+    }
+
+
+    @Override
+    public void onPaymentSuccess(String s) {
+        try {
+
+            paymentUpdateInterface.paymentSuccess(s);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void onPaymentError(int i, String s) {
+
+    }
 
 
 }
