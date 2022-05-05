@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/green"
+        tools:context=".NoPaymentCheckoutFragment">
+
+        <RelativeLayout
+            android:id="@+id/actionBar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
+
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/ic_back"
+                app:tint="@color/white" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/rubik_bold"
+                android:text="Checkout"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/actionBar"
+            android:background="@drawable/custom_white_rectangle">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/doneBtn">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/topRelative"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/check" />
+
+                        <View
+                            android:layout_width="50dp"
+                            android:layout_height="1dp"
+                            android:background="@color/purple_light" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/check" />
+
+                        <View
+                            android:layout_width="50dp"
+                            android:layout_height="1dp"
+                            android:background="@color/purple_light" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/check" />
+
+                        <View
+                            android:layout_width="50dp"
+                            android:layout_height="1dp"
+                            android:background="@color/purple_light" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/dark_circle" />
+
+
+                    </LinearLayout>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        app:cardCornerRadius="24dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:id="@+id/serviceType"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/rubik_bold"
+                                android:text="Wash And Iron"
+                                android:textColor="@color/purple"
+                                android:textSize="16dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/rubik_medium"
+                                android:text="*This price is applicable on per kg cloth*"
+                                android:textColor="@color/purple_light"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="16dp"
+                                android:background="@drawable/round_text_background"
+                                android:fontFamily="@font/rubik_bold"
+                                android:padding="8dp"
+                                android:text="  Services Applicable  "
+                                android:textColor="@color/purple" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/rubik_bold"
+                                android:text="Packaging type"
+                                android:textColor="@color/green"
+                                android:textSize="12dp" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginBottom="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/rubik_medium"
+                                    android:text="Bundle Packaging :"
+                                    android:textSize="12sp" />
+
+                                <ImageView
+                                    android:id="@+id/icBundlePackaging"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:src="@drawable/check" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/rubik_medium"
+                                    android:text="Multi Packaging :"
+                                    android:textSize="12sp" />
+
+                                <ImageView
+                                    android:id="@+id/icMultiPackaging"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:src="@drawable/check" />
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/rubik_bold"
+                                android:text="Color Preference"
+                                android:textColor="@color/green"
+                                android:textSize="12dp" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginRight="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/rubik_medium"
+                                    android:text="Color Clothes :"
+                                    android:textSize="12sp" />
+
+                                <ImageView
+                                    android:id="@+id/icColorCloth"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:src="@drawable/check" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/rubik_medium"
+                                    android:text="White Clothes :"
+                                    android:textSize="12sp" />
+
+                                <ImageView
+                                    android:id="@+id/icWhiteCloth"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:src="@drawable/check" />
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/rubik_bold"
+                                android:text="Washing Temperature "
+                                android:textColor="@color/green"
+                                android:textSize="12dp" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginRight="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/rubik_medium"
+                                    android:text="Temperature :"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/txtTemperature"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/rubik_bold"
+                                    android:text="30 Celsius"
+                                    android:textSize="12sp" />
+
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/rubik_bold"
+                                android:text="Others"
+                                android:textColor="@color/green"
+                                android:textSize="12dp" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginRight="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/rubik_medium"
+                                    android:text="Dry Heater :"
+                                    android:textSize="12sp" />
+
+                                <ImageView
+                                    android:id="@+id/icDryHeater"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:src="@drawable/check" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/rubik_medium"
+                                    android:text="Scented Detergent :"
+                                    android:textSize="12sp" />
+
+                                <ImageView
+                                    android:id="@+id/icScentedDetergent"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:src="@drawable/check" />
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/rubik_medium"
+                                    android:text="Use Softner :"
+                                    android:textSize="12sp" />
+
+                                <ImageView
+                                    android:id="@+id/icUseSoftner"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:src="@drawable/check" />
+
+
+                            </RelativeLayout>
+
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginTop="16dp"
+                                android:background="@color/purple_light" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginRight="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/rubik_medium"
+                                    android:text="Price :"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/txtPrice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/rubik_bold"
+                                    android:text="5 Rs / kg"
+                                    android:textSize="12sp" />
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/rubik_medium"
+                                    android:text="Additional Applicable Price :"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/txtAdditionalPrice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/rubik_bold"
+                                    android:text=" + 5 Rs / kg"
+                                    android:textSize="12sp" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="8dp"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:fontFamily="@font/rubik_medium"
+                                    android:text="Grand Final Price :"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/txtTotalPrice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:fontFamily="@font/rubik_black"
+                                    android:text="5 Rs / kg"
+
+                                    android:textColor="@color/purple"
+                                    android:textSize="12sp" />
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/rubik_bold"
+                                android:text="Final Price" />
+
+                            <TextView
+                                android:id="@+id/txtTotalPrice1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="31dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:fontFamily="@font/rubik_black"
+                                android:text="5 /Kg"
+                                android:textColor="@color/purple"
+                                android:textSize="28sp" />
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/promoCodeBtn"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                app:cardBackgroundColor="#f0f8ff"
+                                app:cardCornerRadius="8dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="24dp"
+                                        android:layout_height="24dp"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="16dp"
+                                        android:src="@drawable/ic_offer"
+                                        app:tint="@color/purple_light" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="8dp"
+                                        android:fontFamily="@font/rubik_bold"
+                                        android:text="APPLY PROMO CODE" />
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="16dp"
+                                        android:src="@drawable/back_icon"
+                                        app:tint="@color/purple_light" />
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/promoCodeSelecedBtn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                app:cardBackgroundColor="#f0f8ff"
+                                app:cardCornerRadius="8dp">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:padding="16dp">
+
+                                    <TextView
+                                        android:id="@+id/title1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/rubik_bold"
+                                        android:textColor="@color/purple"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <TextView
+                                        android:id="@+id/description1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="4dp"
+                                        android:fontFamily="@font/rubik_medium"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/title1" />
+
+                                    <TextView
+                                        android:id="@+id/minOrderPrice1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/rubik_medium"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/description1" />
+
+                                    <TextView
+                                        android:id="@+id/maximumDiscount1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/rubik_medium"
+
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/minOrderPrice1" />
+
+                                    <TextView
+                                        android:id="@+id/promoCode1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="8dp"
+                                        android:background="@drawable/coupon_background"
+                                        android:fontFamily="@font/rubik_bold"
+                                        android:letterSpacing="0.2"
+                                        android:padding="8dp"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/maximumDiscount1" />
+
+                                    <TextView
+                                        android:id="@+id/textView52"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="16dp"
+                                        android:fontFamily="@font/rubik_bold"
+                                        android:padding="5dp"
+                                        android:text="Applied"
+                                        android:textColor="@color/purple_light"
+                                        app:layout_constraintBottom_toBottomOf="@+id/promoCode1"
+                                        app:layout_constraintStart_toEndOf="@+id/promoCode1"
+                                        app:layout_constraintTop_toTopOf="@+id/promoCode1" />
+
+                                    <TextView
+                                        android:id="@+id/removeBtn"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="16dp"
+                                        android:fontFamily="@font/rubik_bold"
+                                        android:padding="5dp"
+                                        android:text="Remove"
+                                        android:textColor="@color/purple_light"
+                                        app:layout_constraintBottom_toBottomOf="@+id/textView52"
+                                        app:layout_constraintStart_toEndOf="@+id/textView52"
+                                        app:layout_constraintTop_toTopOf="@+id/textView52" />" />
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginBottom="16dp"
+                                android:fontFamily="@font/rubik_medium"
+                                android:text="*Offer will we applied after pickup*"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+            </ScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/doneBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/btn_background"
+                android:fontFamily="@font/rubik_bold"
+                android:text="Done"
+                app:backgroundTint="@color/yellow" />
+
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>

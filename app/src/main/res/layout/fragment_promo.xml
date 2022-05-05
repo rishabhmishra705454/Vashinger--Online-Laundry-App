@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PromoFragment">
+
+    <RelativeLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/green">
+
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/ic_back"
+            app:tint="@color/white" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Offers"
+            android:fontFamily="@font/rubik_bold"
+            android:textSize="18sp"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/promoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topLayout"
+        android:layout_marginTop="16dp">
+
+        <EditText
+            android:id="@+id/promoCodeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_toLeftOf="@id/applyBtn"
+            android:background="@drawable/edittext_background"
+            android:hint="Enter Promo Code"
+            android:padding="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/applyBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/btn_background"
+            android:text="apply"
+            app:backgroundTint="@color/yellow" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textActiveOffer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Active Offers"
+        android:textColor="@color/purple"
+        android:fontFamily="@font/rubik_medium"
+        android:layout_below="@id/promoLayout"
+        android:layout_margin="16dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textActiveOffer" />
+</RelativeLayout>

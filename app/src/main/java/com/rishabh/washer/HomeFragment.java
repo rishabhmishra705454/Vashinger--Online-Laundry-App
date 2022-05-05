@@ -13,6 +13,7 @@ import androidx.navigation.Navigation;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.rishabh.washer.databinding.FragmentHomeBinding;
+import com.squareup.picasso.Picasso;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -62,9 +63,17 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Bundle washAndIronBundle = new Bundle();
                 washAndIronBundle.putString("serviceType", "Wash And Iron");
-                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_washAndIronFragment, washAndIronBundle);
+                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_kgPricingFragment, washAndIronBundle);
 
+            }
+        });
 
+        binding.washAndFoldBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("serviceType" , "Wash And Fold");
+                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_kgPricingFragment,bundle);
             }
         });
 
@@ -90,6 +99,8 @@ public class HomeFragment extends Fragment {
         });
 
 
+
+/*
         binding.draning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,6 +110,8 @@ public class HomeFragment extends Fragment {
 
             }
         });
+
+ */
         return view;
 
     }

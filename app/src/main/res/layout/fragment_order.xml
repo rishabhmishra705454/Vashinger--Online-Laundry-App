@@ -4,48 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#efefef"
+    android:background="@color/white"
     tools:context=".OrderFragment">
 
-    <View
-        android:id="@+id/view"
+
+    <RelativeLayout
+        android:id="@+id/topLayout"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="@drawable/custom_rectangle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="?actionBarSize"
+        android:background="@color/green"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/rubik_bold"
+            android:text="My Orders"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="18sp"/>
 
 
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/rubik_bold"
-        android:text="Orders"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26">
+        app:layout_constraintTop_toBottomOf="@+id/topLayout">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="100dp"
             android:visibility="gone" />
 
         <com.facebook.shimmer.ShimmerFrameLayout

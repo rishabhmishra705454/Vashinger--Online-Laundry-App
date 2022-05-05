@@ -50,6 +50,52 @@
 
                 android:orientation="vertical">
 
+                <LinearLayout
+                    android:id="@+id/topRelative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/check" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="1dp"
+                        android:background="@color/purple_light" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/dark_circle" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="1dp"
+                        android:background="@color/purple_light" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/circle" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="1dp"
+                        android:background="@color/purple_light" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/circle" />
+
+
+                </LinearLayout>
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -67,19 +113,29 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/rubik_bold"
                             android:text="Color Preference"
-                            android:textColor="@color/black"
+                            android:textColor="@color/purple"
                             android:textSize="16dp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
+
+                        <ImageView
+                            android:id="@+id/colorPreferenceInfo"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_info"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/purple_light" />
 
 
                         <CheckBox
                             android:id="@+id/colorClothCheckbox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Color Clothes"
+                            android:layout_marginTop="8dp"
                             android:checked="true"
+                            android:text="Color Clothes"
                             android:textColor="@color/purple_light"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
@@ -119,11 +175,19 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/rubik_bold"
                             android:text="Washing Temperature"
-                            android:textColor="@color/black"
+                            android:textColor="@color/purple"
                             android:textSize="16dp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
+                        <ImageView
+                            android:id="@+id/washTempInfo"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_info"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/purple_light" />
 
                         <EditText
                             android:id="@+id/editText"
@@ -132,8 +196,8 @@
                             android:layout_marginStart="4dp"
                             android:inputType="number"
                             android:maxLength="2"
-                            android:text="30"
                             android:maxLines="1"
+                            android:text="30"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="@+id/checkBox4" />
 
@@ -142,9 +206,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:checked="true"
                             android:clickable="false"
                             android:text="Celsius"
-                            android:checked="true"
                             android:textColor="@color/purple_light"
                             android:textStyle="bold"
                             app:layout_constraintStart_toEndOf="@+id/editText"
@@ -175,20 +240,42 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/rubik_bold"
                             android:text="Others"
-                            android:textColor="@color/black"
+                            android:textColor="@color/purple"
                             android:textSize="16dp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/otherInfo"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_info"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/purple_light" />
 
                         <CheckBox
                             android:id="@+id/dryHeater"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:text="Dry Heater"
                             android:textColor="@color/purple_light"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+                        <TextView
+                            android:id="@+id/textView44"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:fontFamily="@font/rubik_bold"
+                            android:text="+ \u20B9 10 / Kg"
+                            android:textColor="@color/purple_light"
+                            app:layout_constraintBottom_toBottomOf="@+id/dryHeater"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/dryHeater" />
 
                         <CheckBox
                             android:id="@+id/scentedDetergent"
@@ -201,6 +288,18 @@
                             app:layout_constraintTop_toBottomOf="@+id/dryHeater" />
 
 
+                        <TextView
+                            android:id="@+id/textView48"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:fontFamily="@font/rubik_bold"
+                            android:text="FREE"
+                            android:textColor="@color/green"
+                            app:layout_constraintBottom_toBottomOf="@+id/scentedDetergent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/scentedDetergent" />
+
                         <CheckBox
                             android:id="@+id/useSoftner"
                             android:layout_width="wrap_content"
@@ -211,6 +310,17 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/scentedDetergent" />
 
+                        <TextView
+                            android:id="@+id/textView49"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:fontFamily="@font/rubik_bold"
+                            android:text="FREE"
+                            android:textColor="@color/green"
+                            app:layout_constraintBottom_toBottomOf="@+id/useSoftner"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/useSoftner" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -221,8 +331,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
                     android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
                     app:cardCornerRadius="16dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -236,10 +346,19 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/rubik_bold"
                             android:text="Additional Note"
-                            android:textColor="@color/black"
+                            android:textColor="@color/purple"
                             android:textSize="16dp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/additionalNotesInfo"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_info"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/purple_light" />
 
                         <EditText
                             android:id="@+id/additionalNotes"

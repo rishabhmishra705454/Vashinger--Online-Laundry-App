@@ -14,7 +14,6 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.razorpay.PaymentResultListener;
 import com.rishabh.washer.Interfaces.PaymentUpdateInterface;
-import com.rishabh.washer.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements PaymentResultListener {
 
@@ -60,6 +59,14 @@ public class MainActivity extends AppCompatActivity implements PaymentResultList
                 }else if (destination.getId() == R.id.editProfileFragment){
                     bottomNavigationView.setVisibility(View.GONE);
                 }else if (destination.getId()==R.id.savedAddressFragment){
+                    bottomNavigationView.setVisibility(View.GONE);
+                }else if (destination.getId()==R.id.noPaymentCheckoutFragment){
+                    bottomNavigationView.setVisibility(View.GONE);
+                }else if (destination.getId()==R.id.kgPricingFragment){
+                    bottomNavigationView.setVisibility(View.GONE);
+                }else if (destination.getId() == R.id.displayOrderDetailFragment){
+                    bottomNavigationView.setVisibility(View.GONE);
+                }else if(destination.getId() == R.id.promoFragment){
                     bottomNavigationView.setVisibility(View.GONE);
                 }
                 else {

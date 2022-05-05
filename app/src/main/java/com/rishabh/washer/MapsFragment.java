@@ -278,6 +278,8 @@ public class MapsFragment extends Fragment {
             @Override
             public void onError(@NonNull Status status) {
 
+                Toast.makeText(getContext(), status.toString(), Toast.LENGTH_SHORT).show();
+
             }
         });
 

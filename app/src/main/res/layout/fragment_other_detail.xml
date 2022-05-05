@@ -51,6 +51,51 @@
 
                 android:orientation="vertical">
 
+                <LinearLayout
+                    android:id="@+id/topRelative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/check" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="1dp"
+                        android:background="@color/purple_light" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/check" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="1dp"
+                        android:background="@color/purple_light" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/dark_circle" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="1dp"
+                        android:background="@color/purple_light" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/circle" />
+
+
+                </LinearLayout>
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -617,6 +662,7 @@
                                 android:orientation="horizontal">
 
                                 <RadioGroup
+                                    android:id="@+id/pickupGroup"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent">
 
@@ -959,6 +1005,7 @@
                                 android:orientation="horizontal">
 
                                 <RadioGroup
+                                    android:id="@+id/deliveryGroup"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent">
 

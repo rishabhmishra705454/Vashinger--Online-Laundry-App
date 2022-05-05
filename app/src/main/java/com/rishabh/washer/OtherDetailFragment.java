@@ -34,8 +34,8 @@ public class OtherDetailFragment extends Fragment {
     View view;
 
     String deliveryDate , pickupDate;
-
     String deliveryTime , pickupTime;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -186,7 +186,7 @@ public class OtherDetailFragment extends Fragment {
         binding.piklay1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numm = 2;
+                numm = 3                                                                       ;
                 binding.piklay1.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.card_background_layout));
                 binding.piklay2.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
                 binding.piklay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
@@ -273,13 +273,18 @@ public class OtherDetailFragment extends Fragment {
                String day =  binding.firstDay.getText().toString();
 
                 pickupDate = day + ", "+ month+ " " + date;
+                pickupTime = null;
+                deliveryTime = null;
+                deliveryDate = null;
+
+                checkingDateAndTiming();
             }
         });
         binding.piklay2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                numm=3;
+                numm=4;
                 binding.piklay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
                 binding.piklay2.setBackground(ContextCompat.getDrawable(getContext(),R.drawable.card_background_layout));
                 binding.piklay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
@@ -365,12 +370,17 @@ public class OtherDetailFragment extends Fragment {
                 String day =  binding.secondDay.getText().toString();
 
                 pickupDate = day + ", "+ month+ " " + date;
+                pickupTime = null;
+                deliveryTime = null;
+                deliveryDate = null;
+
+                checkingDateAndTiming();
             }
         });
         binding.piklay3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numm=4;
+                numm=5;
                 binding.piklay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
                 binding.piklay2.setBackground(ContextCompat.getDrawable(getContext(),R.color.white));
                 binding.piklay3.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.card_background_layout));
@@ -456,12 +466,17 @@ public class OtherDetailFragment extends Fragment {
                 String day =  binding.thirdDay.getText().toString();
 
                 pickupDate = day + ", "+ month+ " " + date;
+                pickupTime = null;
+                deliveryTime = null;
+                deliveryDate = null;
+
+                checkingDateAndTiming();
             }
         });
         binding.piklay4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numm = 5;
+                numm = 6;
                 binding.piklay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
                 binding.piklay2.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
                 binding.piklay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
@@ -547,13 +562,17 @@ public class OtherDetailFragment extends Fragment {
                 String day =  binding.forthDay.getText().toString();
 
                 pickupDate = day + ", "+ month+ " " + date;
+                pickupTime = null;
+                deliveryTime = null;
+                deliveryDate = null;
+                checkingDateAndTiming();
             }
         });
         binding.piklay5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                numm = 6;
+                numm = 7;
                 binding.piklay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
                 binding.piklay2.setBackground(ContextCompat.getDrawable(getContext(),R.color.white));
                 binding.piklay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
@@ -639,6 +658,11 @@ public class OtherDetailFragment extends Fragment {
                 String day =  binding.fifthDay.getText().toString();
 
                 pickupDate = day + ", "+ month+ " " + date;
+                pickupTime = null;
+                deliveryTime = null;
+                deliveryDate = null;
+
+                checkingDateAndTiming();
             }
         });
 
@@ -647,7 +671,7 @@ public class OtherDetailFragment extends Fragment {
         Calendar cal2 = Calendar.getInstance();
         for (int j = 0; j <= 6; j++) {
             if (j == 0) {
-                cal2.add(Calendar.DATE, 2);
+                cal2.add(Calendar.DATE, 3);
                 SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
                 SimpleDateFormat mDate = new SimpleDateFormat("d");
                 SimpleDateFormat mDay = new SimpleDateFormat("EEE");
@@ -732,6 +756,34 @@ public class OtherDetailFragment extends Fragment {
 
                 deliveryDate = day + ", "+ month+ " " + date;
 
+                binding.firstDeliveryTiming.setEnabled(true);
+                binding.secondDeliveryTiming.setEnabled(true);
+                binding.thirdDeliveryTiming.setEnabled(true);
+                binding.fourthDeliveryTiming.setEnabled(true);
+                binding.deliveryGroup.clearCheck();
+
+                if (binding.firstPickupTiming.isChecked()){
+                    binding.firstDeliveryTiming.setEnabled(true);
+                    binding.secondDeliveryTiming.setEnabled(true);
+                    binding.thirdDeliveryTiming.setEnabled(true);
+                    binding.fourthDeliveryTiming.setEnabled(true);
+                }if (binding.secondPickupTiming.isChecked()){
+                    binding.firstDeliveryTiming.setEnabled(false);
+                    binding.secondDeliveryTiming.setEnabled(true);
+                    binding.thirdDeliveryTiming.setEnabled(true);
+                    binding.fourthDeliveryTiming.setEnabled(true);
+                }if (binding.thirdPickupTiming.isChecked()){
+                    binding.firstDeliveryTiming.setEnabled(false);
+                    binding.secondDeliveryTiming.setEnabled(false);
+                    binding.thirdDeliveryTiming.setEnabled(true);
+                    binding.fourthDeliveryTiming.setEnabled(true);
+                }if (binding.fourthPickupTiming.isChecked()){
+                    binding.firstDeliveryTiming.setEnabled(false);
+                    binding.secondDeliveryTiming.setEnabled(false);
+                    binding.thirdDeliveryTiming.setEnabled(false);
+                    binding.fourthDeliveryTiming.setEnabled(true);
+                }
+
             }
         });
         binding.dellay2.setOnClickListener(new View.OnClickListener() {
@@ -748,6 +800,13 @@ public class OtherDetailFragment extends Fragment {
                 String day =  binding.secondDay2.getText().toString();
 
                 deliveryDate = day + ", "+ month+ " " + date;
+                deliveryTime=null;
+
+                binding.firstDeliveryTiming.setEnabled(true);
+                binding.secondDeliveryTiming.setEnabled(true);
+                binding.thirdDeliveryTiming.setEnabled(true);
+                binding.fourthDeliveryTiming.setEnabled(true);
+                binding.deliveryGroup.clearCheck();
             }
         });
         binding.dellay3.setOnClickListener(new View.OnClickListener() {
@@ -764,6 +823,14 @@ public class OtherDetailFragment extends Fragment {
                 String day =  binding.thirdDay2.getText().toString();
 
                 deliveryDate = day + ", "+ month+ " " + date;
+                deliveryTime=null;
+
+
+                binding.firstDeliveryTiming.setEnabled(true);
+                binding.secondDeliveryTiming.setEnabled(true);
+                binding.thirdDeliveryTiming.setEnabled(true);
+                binding.fourthDeliveryTiming.setEnabled(true);
+                binding.deliveryGroup.clearCheck();
             }
         });
         binding.dellay4.setOnClickListener(new View.OnClickListener() {
@@ -780,6 +847,13 @@ public class OtherDetailFragment extends Fragment {
                 String day =  binding.forthDay2.getText().toString();
 
                 deliveryDate = day + ", "+ month+ " " + date;
+                deliveryTime=null;
+
+                binding.firstDeliveryTiming.setEnabled(true);
+                binding.secondDeliveryTiming.setEnabled(true);
+                binding.thirdDeliveryTiming.setEnabled(true);
+                binding.fourthDeliveryTiming.setEnabled(true);
+                binding.deliveryGroup.clearCheck();
             }
         });
         binding.dellay5.setOnClickListener(new View.OnClickListener() {
@@ -797,11 +871,19 @@ public class OtherDetailFragment extends Fragment {
                 String day =  binding.fifthDay2.getText().toString();
 
                 deliveryDate = day + ", "+ month+ " " + date;
+                deliveryTime = null;
+
+                binding.firstDeliveryTiming.setEnabled(true);
+                binding.secondDeliveryTiming.setEnabled(true);
+                binding.thirdDeliveryTiming.setEnabled(true);
+                binding.fourthDeliveryTiming.setEnabled(true);
+                binding.deliveryGroup.clearCheck();
             }
         });
 
 
 
+        checkingDateAndTiming();
 
 
         binding.selectPickAddressText.setOnClickListener(new View.OnClickListener() {
@@ -815,6 +897,12 @@ public class OtherDetailFragment extends Fragment {
 
 
         });
+
+
+
+
+
+
 
         binding.doneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -858,10 +946,17 @@ public class OtherDetailFragment extends Fragment {
                     String longitude = setLocation.getString("longitude", "");
                     String phoneNo = setLocation.getString("phoneNo", "");
                     String houseNo = setLocation.getString("houseNo", "");
+
+
                     String landmark = setLocation.getString("landmark", "");
                     String fullName = setLocation.getString("fullName", "");
 
                     Bundle detail = new Bundle();
+                    detail.putString("serviceType", getArguments().getString("serviceType"));
+                    detail.putString("packagingType", getArguments().getString("packagingType"));
+
+                    detail.putString("totalItem" , getArguments().getString("totalItem"));
+                    detail.putString("pricing", getArguments().getString("pricing"));
                     detail.putString("colorPreference", getArguments().getString("colorPreference"));
                     detail.putString("washingTemperature", getArguments().getString("washingTemperature"));
                     detail.putBoolean("dryHeater", getArguments().getBoolean("dryHeater"));
@@ -869,47 +964,171 @@ public class OtherDetailFragment extends Fragment {
                     detail.putBoolean("useSoftner", getArguments().getBoolean("useSoftner"));
                     detail.putString("additionalNote", getArguments().getString("additionalNote"));
 
+                    //passing location
                     detail.putString("address", address);
                     detail.putString("locality", locality);
                     detail.putString("pincode", pincode);
                     detail.putString("latitude", latitude);
                     detail.putString("longitude", longitude);
-                    detail.putString("phoneNo",phoneNo);
-                    detail.putString("houseNo" ,houseNo);
-                    detail.putString("landmark" , landmark);
-                    detail.putString("fullName",fullName);
+                    detail.putString("phoneNo", phoneNo);
+                    detail.putString("houseNo", houseNo);
+                    detail.putString("landmark", landmark);
+                    detail.putString("fullName", fullName);
 
-
-
-
+                    //passing Date and time
                     detail.putString("pickupDate", pickupDate);
 
                     detail.putString("deliveryDate", deliveryDate);
 
-
-
-
-
                     detail.putString("pickupTime", pickupTime);
+
                     detail.putString("deliveryTime", deliveryTime);
 
 
+                    if (getArguments().getString("serviceType").equals("Wash And Iron") || getArguments().getString("serviceType").equals("Wash And Fold")) {
+                        Navigation.findNavController(view).navigate(R.id.action_otherDetailFragment_to_noPaymentCheckoutFragment, detail);
+                    } else {
 
-                    detail.putString("totalPrice", getArguments().getString("totalPrice"));
-                    detail.putString("totalItem", getArguments().getString("totalItem"));
-                    detail.putString("serviceType", getArguments().getString("serviceType"));
+                        Navigation.findNavController(view).navigate(R.id.action_otherDetailFragment_to_checkoutDetailFragment, detail);
+                    }
 
-
-
-                    Navigation.findNavController(view).navigate(R.id.action_otherDetailFragment_to_checkoutDetailFragment, detail);
                 }
-
-
             }
         });
 
 
         return view;
+    }
+
+    private void checkingDateAndTiming() {
+
+        binding.firstPickupTiming.setEnabled(true);
+        binding.secondPickupTiming.setEnabled(true);
+        binding.thirdPickupTiming.setEnabled(true);
+        binding.fourthPickupTiming.setEnabled(true);
+        binding.firstDeliveryTiming.setEnabled(true);
+        binding.secondDeliveryTiming.setEnabled(true);
+        binding.thirdDeliveryTiming.setEnabled(true);
+        binding.fourthDeliveryTiming.setEnabled(true);
+
+        binding.firstPickupTiming.setSelected(false);
+        binding.secondPickupTiming.setSelected(false);
+        binding.thirdPickupTiming.setSelected(false);
+        binding.fourthPickupTiming.setSelected(false);
+        binding.firstDeliveryTiming.setSelected(false);
+        binding.secondDeliveryTiming.setSelected(false);
+        binding.thirdDeliveryTiming.setSelected(false);
+        binding.fourthDeliveryTiming.setSelected(false);
+        binding.pickupGroup.clearCheck();
+        binding.deliveryGroup.clearCheck();
+
+
+
+        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        Calendar calendar1 = Calendar.getInstance();
+        calendar1.add(Calendar.DATE, 0);
+        SimpleDateFormat mMonth = new SimpleDateFormat("MMM");
+        SimpleDateFormat mDate = new SimpleDateFormat("d");
+        SimpleDateFormat mDay = new SimpleDateFormat("EEE");
+        String fmonth = mMonth.format(calendar1.getTime());
+        String fdate = mDate.format(calendar1.getTime());
+        String fday = mDay.format(calendar1.getTime());
+
+        String todayDate = fday + ", "+ fmonth+ " " + fdate;
+
+        if (todayDate.equals(pickupDate) && currentHour>=5){
+            binding.firstPickupTiming.setEnabled(false);
+        }
+        if (todayDate.equals(pickupDate) && currentHour>=8){
+            binding.firstPickupTiming.setEnabled(false);
+            binding.secondPickupTiming.setEnabled(false);
+        }
+        if (todayDate.equals(pickupDate) && currentHour>=13){
+            binding.firstPickupTiming.setEnabled(false);
+            binding.secondPickupTiming.setEnabled(false);
+            binding.thirdPickupTiming.setEnabled(false);
+        }
+        if (todayDate.equals(pickupDate) && currentHour>=16){
+            binding.firstPickupTiming.setEnabled(false);
+            binding.secondPickupTiming.setEnabled(false);
+            binding.thirdPickupTiming.setEnabled(false);
+            binding.fourthPickupTiming.setEnabled(false);
+        }
+
+        binding.firstPickupTiming.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.firstDeliveryTiming.setEnabled(true);
+                binding.secondDeliveryTiming.setEnabled(true);
+                binding.thirdDeliveryTiming.setEnabled(true);
+                binding.fourthDeliveryTiming.setEnabled(true);
+                binding.dellay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay2.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay4.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay5.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+
+                binding.deliveryGroup.clearCheck();
+                deliveryDate = null;
+                deliveryTime = null;
+            }
+        });
+        binding.secondPickupTiming.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.firstDeliveryTiming.setEnabled(false);
+                binding.secondDeliveryTiming.setEnabled(true);
+                binding.thirdDeliveryTiming.setEnabled(true);
+                binding.fourthDeliveryTiming.setEnabled(true);
+                binding.dellay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay2.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay4.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay5.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+
+                binding.deliveryGroup.clearCheck();
+                deliveryDate = null;
+                deliveryTime = null;
+            }
+        });
+        binding.thirdPickupTiming.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.firstDeliveryTiming.setEnabled(false);
+                binding.secondDeliveryTiming.setEnabled(false);
+                binding.thirdDeliveryTiming.setEnabled(true);
+                binding.fourthDeliveryTiming.setEnabled(true);
+                binding.dellay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay2.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay4.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay5.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+
+                binding.deliveryGroup.clearCheck();
+                deliveryDate = null;
+                deliveryTime = null;
+
+            }
+        });
+        binding.fourthPickupTiming.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                binding.firstDeliveryTiming.setEnabled(false);
+                binding.secondDeliveryTiming.setEnabled(false);
+                binding.thirdDeliveryTiming.setEnabled(false);
+                binding.fourthDeliveryTiming.setEnabled(true);
+                binding.dellay1.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay2.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay3.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay4.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                binding.dellay5.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+
+                binding.deliveryGroup.clearCheck();
+                deliveryDate = null;
+                deliveryTime = null;
+            }
+        });
     }
 
     private boolean isLocationEnabled() {

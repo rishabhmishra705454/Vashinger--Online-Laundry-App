@@ -12,12 +12,19 @@
         <action
             android:id="@+id/action_nav_home_to_washAndIronFragment"
             app:destination="@id/washAndIronFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_kgPricingFragment"
+            app:destination="@id/kgPricingFragment" />
     </fragment>
     <fragment
         android:id="@+id/nav_order"
         android:name="com.rishabh.washer.OrderFragment"
         android:label="fragment_order"
-        tools:layout="@layout/fragment_order" />
+        tools:layout="@layout/fragment_order" >
+        <action
+            android:id="@+id/action_nav_order_to_displayOrderDetailFragment"
+            app:destination="@id/displayOrderDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.rishabh.washer.ProfileFragment"
@@ -59,6 +66,9 @@
         <action
             android:id="@+id/action_otherDetailFragment_to_savedAddressFragment"
             app:destination="@id/savedAddressFragment" />
+        <action
+            android:id="@+id/action_otherDetailFragment_to_noPaymentCheckoutFragment"
+            app:destination="@id/noPaymentCheckoutFragment" />
     </fragment>
     <fragment
         android:id="@+id/checkoutDetailFragment"
@@ -70,6 +80,9 @@
         <action
             android:id="@+id/action_checkoutDetailFragment_to_sucessDialogFragment"
             app:destination="@id/sucessDialogFragment" />
+        <action
+            android:id="@+id/action_checkoutDetailFragment_to_promoFragment"
+            app:destination="@id/promoFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment2"
@@ -139,4 +152,35 @@
             android:id="@+id/action_savedAddressFragment_to_mapsFragment"
             app:destination="@id/mapsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/kgPricingFragment"
+        android:name="com.rishabh.washer.KgPricingFragment"
+        android:label="fragment_kg_pricing"
+        tools:layout="@layout/fragment_kg_pricing" >
+        <action
+            android:id="@+id/action_kgPricingFragment_to_washingPreferenceFragment"
+            app:destination="@id/washingPreferenceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noPaymentCheckoutFragment"
+        android:name="com.rishabh.washer.NoPaymentCheckoutFragment"
+        android:label="fragment_no_payment_checkout"
+        tools:layout="@layout/fragment_no_payment_checkout" >
+        <action
+            android:id="@+id/action_noPaymentCheckoutFragment_to_sucessDialogFragment"
+            app:destination="@id/sucessDialogFragment" />
+        <action
+            android:id="@+id/action_noPaymentCheckoutFragment_to_promoFragment"
+            app:destination="@id/promoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/promoFragment"
+        android:name="com.rishabh.washer.PromoFragment"
+        android:label="fragment_promo"
+        tools:layout="@layout/fragment_promo" />
+    <fragment
+        android:id="@+id/displayOrderDetailFragment"
+        android:name="com.rishabh.washer.DisplayOrderDetailFragment"
+        android:label="fragment_display_order_detail"
+        tools:layout="@layout/fragment_display_order_detail" />
 </navigation>

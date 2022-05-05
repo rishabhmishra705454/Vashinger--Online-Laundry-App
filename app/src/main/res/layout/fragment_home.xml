@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="#efefef"
+
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
@@ -34,6 +35,8 @@
         android:layout_marginRight="16dp"
         app:tint="@color/white" />
 
+
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -62,11 +65,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <LinearLayout
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/firsLinearLayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_margin="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:weightSum="2"
@@ -76,15 +84,18 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/washAndIronBtn"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            android:layout_margin="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="16dp"
             android:clickable="true"
             android:elevation="12dp"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/washAndFoldBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -93,22 +104,25 @@
 
                 <ImageView
                     android:id="@+id/image_view1"
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
+                    android:layout_width="90dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
                     android:src="@drawable/ic_washing_machine"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    android:layout_marginTop="16dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/rubik_bold"
                     android:text="Wash \u0026 Iron"
+                    android:textColor="@color/purple"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:fontFamily="@font/rubik_bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/image_view1" />
 
@@ -118,16 +132,18 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/iron"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            android:layout_margin="8dp"
-            android:layout_marginEnd="16dp"
+            android:id="@+id/washAndFoldBtn"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="16dp"
             android:clickable="true"
             android:elevation="12dp"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -135,25 +151,26 @@
 
 
                 <ImageView
-                    android:id="@+id/image_view2"
-                    android:layout_width="80dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/ic_iron"
+                    android:id="@+id/image_view5"
+                    android:layout_width="90dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="24dp"
+                    android:src="@drawable/ic_washandfold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    android:layout_marginTop="16dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Iron"
+                    android:fontFamily="@font/rubik_bold"
+                    android:text="Wash \u0026 Fold"
+                    android:textColor="@color/purple"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:fontFamily="@font/rubik_bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/image_view2" />
+                    app:layout_constraintTop_toBottomOf="@id/image_view5" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -161,13 +178,18 @@
 
         </androidx.cardview.widget.CardView>
 
-        
-    </LinearLayout>
-    <LinearLayout
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/secondLinearLayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:weightSum="2"
@@ -177,15 +199,20 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/dryCleaning"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            android:layout_margin="8dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:clickable="true"
             android:elevation="12dp"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iron"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -194,22 +221,23 @@
 
                 <ImageView
                     android:id="@+id/image_view3"
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
+                    android:layout_width="90dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="24dp"
                     android:src="@drawable/ic_dry_clean"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    android:layout_marginTop="16dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/rubik_bold"
                     android:text="Dry Cleaning"
+                    android:textColor="@color/purple"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:fontFamily="@font/rubik_bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/image_view3" />
 
@@ -219,6 +247,55 @@
 
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/iron"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:elevation="12dp"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <ImageView
+                    android:id="@+id/image_view2"
+                    android:layout_width="90dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="24dp"
+                    android:src="@drawable/ic_iron"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/rubik_bold"
+                    android:text="Iron"
+                    android:textColor="@color/purple"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/image_view2" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+        <!--
         <androidx.cardview.widget.CardView
             android:id="@+id/draning"
             android:layout_width="128dp"
@@ -262,9 +339,10 @@
 
 
         </androidx.cardview.widget.CardView>
+        -->
 
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

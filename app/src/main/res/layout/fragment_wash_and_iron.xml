@@ -58,29 +58,29 @@
                     android:id="@+id/cartTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cloths in Laundry"
-                    android:fontFamily="@font/rubik_bold"
-                    android:textSize="16sp"
                     android:layout_margin="16dp"
-                    android:textColor="@color/purple"/>
+                    android:fontFamily="@font/rubik_bold"
+                    android:text="Cloths in Laundry"
+                    android:textColor="@color/purple"
+                    android:textSize="16sp" />
 
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cartLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_below="@id/cartTitle"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
                     app:cardCornerRadius="24dp">
 
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:padding="8dp"
-                        android:background="@drawable/card_border_background">
+                        android:background="@drawable/card_border_background"
+                        android:padding="8dp">
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/cartRecyclerView"
@@ -131,9 +131,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/cartLayout"
                     android:layout_alignParentRight="true"
+                    android:layout_margin="16dp"
                     android:fontFamily="@font/rubik_black"
-                    android:textColor="@color/purple"
-                    android:layout_margin="16dp"/>
+                    android:textColor="@color/purple" />
 
             </RelativeLayout>
 

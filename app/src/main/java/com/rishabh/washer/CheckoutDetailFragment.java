@@ -62,7 +62,7 @@ public class CheckoutDetailFragment extends Fragment {
 
         user = mAuth.getCurrentUser();
 
-        totalPrice1 = getArguments().getString("totalPrice");
+        totalPrice1 = getArguments().getString("pricing");
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("ProfileDetail", MODE_PRIVATE);
         fullName = sharedPreferences.getString("fullName", "");
@@ -75,9 +75,9 @@ public class CheckoutDetailFragment extends Fragment {
         binding.pickupDateAndTime.setText(getArguments().getString("pickupDate") + " | " + getArguments().getString("pickupTime"));
         binding.pickupAddress.setText(getArguments().getString("locality") + ", " + getArguments().getString("pincode"));
         binding.contactNo.setText(phoneNo);
-        binding.subTotal.setText("\u20B9 " + getArguments().getString("totalPrice"));
+        binding.subTotal.setText("\u20B9 " + getArguments().getString("pricing"));
         binding.deliveryCharge.setText("\u20B9 0");
-        binding.total.setText("\u20B9 " + getArguments().getString("totalPrice"));
+        binding.total.setText("\u20B9 " + getArguments().getString("pricing"));
         binding.totalCloth.setText(getArguments().getString("totalItem"));
 
         binding.backBtn.setOnClickListener(new View.OnClickListener() {
@@ -134,7 +134,7 @@ public class CheckoutDetailFragment extends Fragment {
                     }
                 });
                 DatabaseReference ref = mdatabase.getReference("orderDetails").child(id);
-                OrderModel orderModel = new OrderModel(id, uid, currentDate, currentTime, "ONLINE", "Confirmed", getArguments().getString("colorPreference"), getArguments().getString("washingTemperature"), getArguments().getString("additionalNote"), getArguments().getString("pickupDate"), getArguments().getString("pickupTime"), getArguments().getString("deliveryDate"), getArguments().getString("deliveryTime"), getArguments().getString("totalPrice"), getArguments().getString("totalItem"), getArguments().getString("serviceType"), getArguments().getString("address"), getArguments().getString("pincode"), getArguments().getString("locality"), getArguments().getString("latitude"), getArguments().getString("longitude"), getArguments().getString("phoneNo"), getArguments().getString("houseNo"), getArguments().getString("landmark"), getArguments().getString("fullName"), getArguments().getBoolean("dryHeater"), getArguments().getBoolean("scentedDetergent"), getArguments().getBoolean("useSoftner"), "", "");
+                OrderModel orderModel = new OrderModel(id, uid, currentDate, currentTime, "ONLINE", "Confirmed", getArguments().getString("colorPreference"), getArguments().getString("washingTemperature"), getArguments().getString("additionalNote"), getArguments().getString("pickupDate"), getArguments().getString("pickupTime"), getArguments().getString("deliveryDate"), getArguments().getString("deliveryTime"), getArguments().getString("pricing"), getArguments().getString("totalItem"), getArguments().getString("serviceType"),"","", getArguments().getString("address"), getArguments().getString("pincode"), getArguments().getString("locality"), getArguments().getString("latitude"), getArguments().getString("longitude"), getArguments().getString("phoneNo"), getArguments().getString("houseNo"), getArguments().getString("landmark"), getArguments().getString("fullName"), "" ,  getArguments().getBoolean("dryHeater"), getArguments().getBoolean("scentedDetergent"), getArguments().getBoolean("useSoftner"), "", "" );
 
                 ref.setValue(orderModel);
                 Toast.makeText(getContext(), "Ordered", Toast.LENGTH_SHORT).show();
@@ -194,7 +194,7 @@ public class CheckoutDetailFragment extends Fragment {
             }
         });
         DatabaseReference ref = mdatabase.getReference("orderDetails").child(uid);
-        OrderModel orderModel = new OrderModel(id, uid, currentDate, currentTime, "ONLINE", "Confirmed", getArguments().getString("colorPreference"), getArguments().getString("washingTemperature"), getArguments().getString("additionalNote"), getArguments().getString("pickupDate"), getArguments().getString("pickupTime"), getArguments().getString("deliveryDate"), getArguments().getString("deliveryTime"), getArguments().getString("totalPrice"), getArguments().getString("totalItem"), getArguments().getString("serviceType"), getArguments().getString("address"), getArguments().getString("pincode"), getArguments().getString("locality"), getArguments().getString("latitude"), getArguments().getString("longitude"), getArguments().getString("phoneNo"), getArguments().getString("houseNo"), getArguments().getString("landmark"), getArguments().getString("fullName"), getArguments().getBoolean("dryHeater"), getArguments().getBoolean("scentedDetergent"), getArguments().getBoolean("useSoftner"), "", "");
+        OrderModel orderModel = new OrderModel(id, uid, currentDate, currentTime, "ONLINE", "Confirmed", getArguments().getString("colorPreference"), getArguments().getString("washingTemperature"), getArguments().getString("additionalNote"), getArguments().getString("pickupDate"), getArguments().getString("pickupTime"), getArguments().getString("deliveryDate"), getArguments().getString("deliveryTime"), getArguments().getString("pricing"), getArguments().getString("totalItem"), getArguments().getString("serviceType"), "","", getArguments().getString("address"), getArguments().getString("pincode"), getArguments().getString("locality"), getArguments().getString("latitude"), getArguments().getString("longitude"), getArguments().getString("phoneNo"), getArguments().getString("houseNo"), getArguments().getString("landmark"), getArguments().getString("fullName"), "",  getArguments().getBoolean("dryHeater"), getArguments().getBoolean("scentedDetergent"), getArguments().getBoolean("useSoftner"), "", "");
 
         ref.child(id).setValue(orderModel);
         Toast.makeText(getContext(), "Ordered", Toast.LENGTH_SHORT).show();
@@ -230,7 +230,7 @@ public class CheckoutDetailFragment extends Fragment {
             }
         });
         DatabaseReference ref = mdatabase.getReference("orderDetails").child(id);
-        OrderModel orderModel = new OrderModel(id, uid, currentDate, currentTime, "ONLINE", "Confirmed", getArguments().getString("colorPreference"), getArguments().getString("washingTemperature"), getArguments().getString("additionalNote"), getArguments().getString("pickupDate"), getArguments().getString("pickupTime"), getArguments().getString("deliveryDate"), getArguments().getString("deliveryTime"), getArguments().getString("totalPrice"), getArguments().getString("totalItem"), getArguments().getString("serviceType"), getArguments().getString("address"), getArguments().getString("pincode"), getArguments().getString("locality"), getArguments().getString("latitude"), getArguments().getString("longitude"), getArguments().getString("phoneNo"), getArguments().getString("houseNo"), getArguments().getString("landmark"), getArguments().getString("fullName"), getArguments().getBoolean("dryHeater"), getArguments().getBoolean("scentedDetergent"), getArguments().getBoolean("useSoftner"), "", "");
+        OrderModel orderModel = new OrderModel(id, uid, currentDate, currentTime, "ONLINE", "Confirmed", getArguments().getString("colorPreference"), getArguments().getString("washingTemperature"), getArguments().getString("additionalNote"), getArguments().getString("pickupDate"), getArguments().getString("pickupTime"), getArguments().getString("deliveryDate"), getArguments().getString("deliveryTime"), getArguments().getString("pricing"), getArguments().getString("totalItem"), getArguments().getString("serviceType"), "","", getArguments().getString("address"), getArguments().getString("pincode"), getArguments().getString("locality"), getArguments().getString("latitude"), getArguments().getString("longitude"), getArguments().getString("phoneNo"), getArguments().getString("houseNo"), getArguments().getString("landmark"), getArguments().getString("fullName"), "" , getArguments().getBoolean("dryHeater"), getArguments().getBoolean("scentedDetergent"), getArguments().getBoolean("useSoftner"), "", "");
 
         ref.setValue(orderModel);
         Toast.makeText(getContext(), "Ordered", Toast.LENGTH_SHORT).show();
@@ -246,7 +246,7 @@ public class CheckoutDetailFragment extends Fragment {
     private void orderOnline() {
 
         final Checkout checkout = new Checkout();
-        checkout.setKeyID("rzp_test_SBON3RwDoUOLYO");
+        checkout.setKeyID("rzp_live_mtZoTr2gKIU3ST");
 
 
         checkout.setImage(R.mipmap.vashinger);

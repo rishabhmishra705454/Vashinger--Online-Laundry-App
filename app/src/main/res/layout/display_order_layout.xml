@@ -1,225 +1,310 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="16dp"
-    android:layout_margin="5dp">
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:layout_marginBottom="8dp"
+    android:background="#f6f1f4"
+    android:padding="16dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <!--
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_black"
+        android:text="WASHING AND IRON"
+        android:textColor="@color/pink"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/rubik_medium"
+        android:text="Date \u0026 Time"
+        android:textColor="@color/purple_light"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/dateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_medium"
+        android:text="12 jun , 2020 "
+        android:textColor="@color/purple"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView20" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/rubik_medium"
+        android:text="Status"
+        android:textColor="@color/purple_light"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_medium"
+        android:text="12 jun , 2020 "
+        android:textColor="@color/pink"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView28"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView28" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_medium"
+        android:text="Pickup"
+        android:textColor="@color/purple_light"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/pickupTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pickupTime" />
+
+    <TextView
+        android:id="@+id/pickupTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/rubik_medium"
+        android:text="12 jun , 2020 "
+        android:textColor="@color/purple"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/status" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_medium"
+        android:text="Address"
+        android:textColor="@color/purple_light"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/pickupAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pickupAddress" />
+
+
+    <TextView
+        android:id="@+id/pickupAddress"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/rubik_medium"
+        android:text="12 jun , 2020 "
+        android:textColor="@color/purple"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pickupTime" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_medium"
+        android:text="Delivery"
+        android:textColor="@color/purple_light"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/deliveryTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/deliveryTime" />
+
+    <TextView
+        android:id="@+id/deliveryTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/rubik_medium"
+        android:text="12 jun , 2020 "
+        android:textColor="@color/purple"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pickupAddress" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_medium"
+        android:text="Address"
+        android:textColor="@color/purple_light"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/deliveryAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/deliveryAddress" />
+
+    <TextView
+        android:id="@+id/deliveryAddress"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/rubik_medium"
+        android:text="12 jun , 2020 "
+        android:textColor="@color/purple"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deliveryTime" />
+
+    <View
+        android:id="@+id/view3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="1dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/purple_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView34" />
 
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/rubik_black"
-            android:text="WASHING AND IRON"
-            android:textColor="@color/pink"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/rubik_bold"
+        android:text="Total Cloths"
+        android:textColor="@color/purple"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
 
-        <TextView
-            android:id="@+id/textView20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:fontFamily="@font/rubik_medium"
-            android:text="Date \u0026 Time"
-            android:textColor="@color/purple_light"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+    <TextView
+        android:id="@+id/cloths"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_bold"
+        android:text="20"
+        android:textColor="@color/purple"
+        app:layout_constraintBottom_toBottomOf="@+id/textView35"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView35" />
 
-        <TextView
-            android:id="@+id/dateTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/rubik_medium"
-            android:text="12 jun , 2020 "
-            android:textColor="@color/purple"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView20"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView20" />
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/rubik_bold"
+        android:text="Total Price"
+        android:textColor="@color/purple"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
-        <TextView
-            android:id="@+id/textView28"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/rubik_medium"
-            android:text="Status"
-            android:textColor="@color/purple_light"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_bold"
+        android:text="100"
+        android:textColor="@color/purple"
+        app:layout_constraintBottom_toBottomOf="@+id/textView36"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView36" />
+        -->
 
-        <TextView
-            android:id="@+id/status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/rubik_medium"
-            android:text="12 jun , 2020 "
-            android:textColor="@color/pink"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView28"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView28" />
+    <TextView
+        android:id="@+id/orderDateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik"
+        android:text="placed on sun , 23 jan, 8:22 pm"
+        android:textColor="@color/purple_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView29"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/rubik_medium"
-            android:text="Pickup"
-            android:textColor="@color/purple_light"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/pickupTime"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/pickupTime" />
+    <TextView
+        android:id="@+id/serviceType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/rubik_bold"
+        android:text="Dry Cleaning ( 7 items )"
+        android:textColor="@color/purple"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orderDateTime" />
 
-        <TextView
-            android:id="@+id/pickupTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/rubik_medium"
-            android:text="12 jun , 2020 "
-            android:textColor="@color/purple"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/status" />
+    <TextView
+        android:id="@+id/pricing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:fontFamily="@font/rubik_medium"
+        android:text="200 Rs"
+        android:textColor="@color/purple"
+        app:layout_constraintBottom_toBottomOf="@+id/serviceType"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/serviceType" />
 
-        <TextView
-            android:id="@+id/textView31"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/rubik_medium"
-            android:text="Address"
-            android:textColor="@color/purple_light"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/pickupAddress"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/pickupAddress" />
+    <TextView
+        android:id="@+id/orderId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/rubik"
+        android:text="order id : ORD45181545"
+        android:textColor="@color/purple"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/serviceType" />
 
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/check"
 
-        <TextView
-            android:id="@+id/pickupAddress"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/rubik_medium"
-            android:text="12 jun , 2020 "
-            android:textColor="@color/purple"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pickupTime" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orderId" />
 
-        <TextView
-            android:id="@+id/textView33"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/rubik_medium"
-            android:text="Delivery"
-            android:textColor="@color/purple_light"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/deliveryTime"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/deliveryTime" />
+    <TextView
+        android:id="@+id/orderStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/rubik"
+        android:text="confirmed"
+        android:textColor="@color/purple"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
-        <TextView
-            android:id="@+id/deliveryTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/rubik_medium"
-            android:text="12 jun , 2020 "
-            android:textColor="@color/purple"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pickupAddress" />
+    <TextView
+        android:id="@+id/viewDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        android:textAllCaps="false"
 
-        <TextView
-            android:id="@+id/textView34"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/rubik_medium"
-            android:text="Address"
-            android:textColor="@color/purple_light"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/deliveryAddress"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/deliveryAddress" />
+        android:background="@drawable/border_btn_background"
+        android:text="view details"
+        android:gravity="center_horizontal"
+        android:textColor="@color/pink"
+        android:padding="12dp"
+        android:fontFamily="@font/rubik_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
-        <TextView
-            android:id="@+id/deliveryAddress"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/rubik_medium"
-            android:text="12 jun , 2020 "
-            android:textColor="@color/purple"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/deliveryTime" />
-
-        <View
-            android:id="@+id/view3"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="24dp"
-            android:background="@color/purple_light"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView34" />
-
-        <TextView
-            android:id="@+id/textView35"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:fontFamily="@font/rubik_bold"
-            android:text="Total Cloths"
-            android:textColor="@color/purple"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view3" />
-
-        <TextView
-            android:id="@+id/cloths"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/rubik_bold"
-            android:text="20"
-            android:textColor="@color/purple"
-            app:layout_constraintBottom_toBottomOf="@+id/textView35"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView35" />
-
-        <TextView
-            android:id="@+id/textView36"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/rubik_bold"
-            android:text="Total Price"
-            android:textColor="@color/purple"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView35" />
-
-        <TextView
-            android:id="@+id/price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/rubik_bold"
-            android:text="100"
-            android:textColor="@color/purple"
-            app:layout_constraintBottom_toBottomOf="@+id/textView36"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView36" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

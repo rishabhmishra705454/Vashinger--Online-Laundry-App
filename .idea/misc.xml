@@ -3,36 +3,89 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/Washer/app/src/main/res/drawable/ic_location.xml" value="0.1555" />
+        <entry key="..\:/AndroidStudioProjects/Washer/app/src/main/res/drawable/ic_my_location.xml" value="0.1555" />
+        <entry key="..\:/AndroidStudioProjects/Washer/app/src/main/res/drawable/ic_wallet.xml" value="0.1555" />
+        <entry key="..\:/AndroidStudioProjects/Washer/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_display_order_detail.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_order.xml" value="0.17083333333333334" />
+        <entry key="..\:/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/drawable-hdpi/coupon_background.xml" value="0.18552631578947368" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/drawable/border_btn_background.xml" value="0.14868421052631578" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/drawable/card_background_layout.xml" value="0.188" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/drawable/card_border_background.xml" value="0.18201754385964913" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/drawable/custom_rectangle.xml" value="0.18201754385964913" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/drawable/custom_white_rectangle.xml" value="0.19054054054054054" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/drawable/edittext_background.xml" value="0.18552631578947368" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/drawable/ic_dry_clean.xml" value="0.188" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/drawable/ic_profile.xml" value="0.19054054054054054" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/drawable/round_text_background.xml" value="0.18693693693693694" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/activity_main.xml" value="0.12590579710144928" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/add_detail_recycler_layout.xml" value="0.1" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/aditional_info_layout.xml" value="0.17297297297297298" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/bottom_sheet_location.xml" value="0.17657657657657658" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/display_order_layout.xml" value="0.25" />
-        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_checkout_detail.xml" value="0.1" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/display_promo_code_layout.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_checkout_detail.xml" value="0.18" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_display_order_detail.xml" value="0.22" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_edit_profile.xml" value="0.1" />
-        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_home.xml" value="0.15" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_kg_pricing.xml" value="0.18" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_login.xml" value="0.15" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_maps.xml" value="0.18" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_no_payment_checkout.xml" value="0.14" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_order.xml" value="0.17192982456140352" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_other_detail.xml" value="0.18" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_otp.xml" value="0.1" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_profile.xml" value="0.17657657657657658" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_promo.xml" value="0.22" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_saved_address.xml" value="0.17037037037037037" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_sucess_dialog.xml" value="0.15185185185185185" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_user_detail.xml" value="0.1" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_wash_and_iron.xml" value="0.17422222222222222" />
-        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_washing_preference.xml" value="0.17657657657657658" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/fragment_washing_preference.xml" value="0.25" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/landry_cart_recycler_layout.xml" value="0.25" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/others_info_layout.xml" value="0.25" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/preference_info_layout.xml" value="0.22" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/saved_address_layout.xml" value="0.17422222222222222" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/success_dailog_layout.xml" value="0.17657657657657658" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/layout/temp_preference_info_layout.xml" value="0.25" />
         <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/menu/botton_nav.xml" value="0.17657657657657658" />
+        <entry key="..\:/Users/risha/AndroidStudioProjects/Washer/app/src/main/res/xml/wash_and_iron_defaults.xml" value="0.17297297297297298" />
+        <entry key="..\:/Washer/app/src/main/res/drawable/btn_background.xml" value="0.152" />
+        <entry key="..\:/Washer/app/src/main/res/drawable/ic_logout.xml" value="0.152" />
+        <entry key="..\:/Washer/app/src/main/res/drawable/ic_order_dark.xml" value="0.1925" />
+        <entry key="..\:/Washer/app/src/main/res/layout/activity_main.xml" value="0.21501532175689478" />
+        <entry key="..\:/Washer/app/src/main/res/layout/activity_splash.xml" value="0.21927083333333333" />
+        <entry key="..\:/Washer/app/src/main/res/layout/add_detail_recycler_layout.xml" value="0.21927083333333333" />
+        <entry key="..\:/Washer/app/src/main/res/layout/fragment_checkout_detail.xml" value="0.215625" />
+        <entry key="..\:/Washer/app/src/main/res/layout/fragment_login.xml" value="0.21927083333333333" />
+        <entry key="..\:/Washer/app/src/main/res/layout/fragment_maps.xml" value="0.21927083333333333" />
+        <entry key="..\:/Washer/app/src/main/res/layout/fragment_order.xml" value="0.21927083333333333" />
+        <entry key="..\:/Washer/app/src/main/res/layout/fragment_otp.xml" value="0.21927083333333333" />
+        <entry key="..\:/Washer/app/src/main/res/layout/fragment_profile.xml" value="0.21927083333333333" />
+        <entry key="..\:/Washer/app/src/main/res/layout/fragment_promo.xml" value="0.21927083333333333" />
+        <entry key="..\:/Washer/app/src/main/res/layout/fragment_saved_address.xml" value="0.21927083333333333" />
+        <entry key="..\:/Washer/app/src/main/res/layout/fragment_user_detail.xml" value="0.21927083333333333" />
+        <entry key="..\:/Washer/app/src/main/res/layout/fragment_wash_and_iron.xml" value="0.21927083333333333" />
+        <entry key="..\:/rish/Washer/app/src/main/res/drawable/ic_delete.xml" value="0.1285" />
+        <entry key="..\:/rish/Washer/app/src/main/res/layout/add_detail_recycler_layout.xml" value="0.21927083333333333" />
+        <entry key="..\:/rish/Washer/app/src/main/res/layout/fragment_wash_and_iron.xml" value="0.21927083333333333" />
+        <entry key="..\:/rish/Washer/app/src/main/res/layout/landry_cart_recycler_layout.xml" value="0.21927083333333333" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8 (16)" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.18" />
+      </ProjectState>
+    </option>
   </component>
 </project>

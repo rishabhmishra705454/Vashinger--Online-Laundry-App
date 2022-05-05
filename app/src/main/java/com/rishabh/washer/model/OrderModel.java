@@ -2,13 +2,16 @@ package com.rishabh.washer.model;
 
 public class OrderModel {
 
-    private String id ,uid , orderDate , orderTime , paymentType , status ,colorPreference , washingTemperature , additionalNote  , pickupDate, pickupTime, deliveryDate ,deliveryTime ,totalPrice , totalItem, serviceType ,address ,pincode,locality,latitude ,longitude ,phoneNo ,houseNo ,landmark , fullName ;
+    private String id ,uid , orderDate , orderTime , paymentType , status ,colorPreference , washingTemperature , additionalNote  , pickupDate, pickupTime, deliveryDate ,deliveryTime ,totalPrice , totalItem, serviceType ,pricing , packagingType,address ,pincode,locality,latitude ,longitude ,phoneNo ,houseNo ,landmark , fullName  , promoCode;
 
     private Boolean dryHeater , scentedDetergent  , useSoftner;
 
     private  String deliveryBoy , laundry;
 
-    public OrderModel(String id, String uid, String orderDate, String orderTime, String paymentType, String status, String colorPreference, String washingTemperature, String additionalNote, String pickupDate, String pickupTime, String deliveryDate, String deliveryTime, String totalPrice, String totalItem, String serviceType, String address, String pincode, String locality, String latitude, String longitude, String phoneNo, String houseNo, String landmark, String fullName, Boolean dryHeater, Boolean scentedDetergent, Boolean useSoftner, String deliveryBoy, String laundry) {
+    public OrderModel() {
+    }
+
+    public OrderModel(String id, String uid, String orderDate, String orderTime, String paymentType, String status, String colorPreference, String washingTemperature, String additionalNote, String pickupDate, String pickupTime, String deliveryDate, String deliveryTime, String totalPrice, String totalItem, String serviceType, String pricing, String packagingType, String address, String pincode, String locality, String latitude, String longitude, String phoneNo, String houseNo, String landmark, String fullName, String promoCode, Boolean dryHeater, Boolean scentedDetergent, Boolean useSoftner, String deliveryBoy, String laundry) {
         this.id = id;
         this.uid = uid;
         this.orderDate = orderDate;
@@ -25,6 +28,8 @@ public class OrderModel {
         this.totalPrice = totalPrice;
         this.totalItem = totalItem;
         this.serviceType = serviceType;
+        this.pricing = pricing;
+        this.packagingType = packagingType;
         this.address = address;
         this.pincode = pincode;
         this.locality = locality;
@@ -34,6 +39,7 @@ public class OrderModel {
         this.houseNo = houseNo;
         this.landmark = landmark;
         this.fullName = fullName;
+        this.promoCode = promoCode;
         this.dryHeater = dryHeater;
         this.scentedDetergent = scentedDetergent;
         this.useSoftner = useSoftner;
@@ -169,6 +175,22 @@ public class OrderModel {
         this.serviceType = serviceType;
     }
 
+    public String getPricing() {
+        return pricing;
+    }
+
+    public void setPricing(String pricing) {
+        this.pricing = pricing;
+    }
+
+    public String getPackagingType() {
+        return packagingType;
+    }
+
+    public void setPackagingType(String packagingType) {
+        this.packagingType = packagingType;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -239,6 +261,14 @@ public class OrderModel {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public String getPromoCode() {
+        return promoCode;
+    }
+
+    public void setPromoCode(String promoCode) {
+        this.promoCode = promoCode;
     }
 
     public Boolean getDryHeater() {

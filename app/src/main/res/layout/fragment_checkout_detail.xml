@@ -50,10 +50,57 @@
 
                 android:orientation="vertical">
 
+                <LinearLayout
+                    android:id="@+id/topRelative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/check" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="1dp"
+                        android:background="@color/purple_light" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/check" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="1dp"
+                        android:background="@color/purple_light" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/check" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="1dp"
+                        android:background="@color/purple_light" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/dark_circle" />
+
+
+                </LinearLayout>
+
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
+                    android:layout_margin="16dp"
                     app:cardCornerRadius="24dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -183,150 +230,149 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="@+id/textView21" />
 
+
                         <View
-                            android:id="@+id/view3"
+                            android:id="@id/view3"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:layout_marginTop="32dp"
+                            android:layout_marginTop="16dp"
                             android:background="@color/purple_light"
-                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                            app:layout_constraintTop_toBottomOf="@+id/contactNo"/>
 
 
-                        <TextView
-                            android:id="@+id/textView22"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="24dp"
-                            android:fontFamily="@font/rubik_medium"
-                            android:text="Sub Total"
-                            android:textColor="@color/purple_light"
-                            android:textSize="12sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/view3" />
+                                                <TextView
+                                                    android:id="@+id/textView22"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="24dp"
+                                                    android:fontFamily="@font/rubik_medium"
+                                                    android:text="Sub Total"
+                                                    android:textColor="@color/purple_light"
+                                                    android:textSize="12sp"
+                                                    app:layout_constraintStart_toStartOf="parent"
+                                                    app:layout_constraintTop_toBottomOf="@+id/view3" />
 
-                        <TextView
-                            android:id="@+id/subTotal"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/rubik_medium"
-                            android:textColor="@color/purple"
-                            android:textSize="12sp"
-                            app:layout_constraintBottom_toBottomOf="@+id/textView22"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/textView22" />
+                                                <TextView
+                                                    android:id="@+id/subTotal"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:fontFamily="@font/rubik_medium"
+                                                    android:textColor="@color/purple"
+                                                    android:textSize="12sp"
+                                                    app:layout_constraintBottom_toBottomOf="@+id/textView22"
+                                                    app:layout_constraintEnd_toEndOf="parent"
+                                                    app:layout_constraintTop_toTopOf="@+id/textView22" />
 
 
-                        <TextView
-                            android:id="@+id/textView24"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:fontFamily="@font/rubik_medium"
-                            android:text="Delivery"
-                            android:textColor="@color/purple_light"
-                            android:textSize="12sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView22" />
+                                                <TextView
+                                                    android:id="@+id/textView24"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="16dp"
+                                                    android:fontFamily="@font/rubik_medium"
+                                                    android:text="Delivery"
+                                                    android:textColor="@color/purple_light"
+                                                    android:textSize="12sp"
+                                                    app:layout_constraintStart_toStartOf="parent"
+                                                    app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
-                        <TextView
-                            android:id="@+id/textView23"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:fontFamily="@font/rubik_medium"
-                            android:text="Total"
-                            android:textColor="@color/purple_light"
-                            android:textSize="12sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView24" />
+                                                <TextView
+                                                    android:id="@+id/textView23"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="16dp"
+                                                    android:fontFamily="@font/rubik_medium"
+                                                    android:text="Total"
+                                                    android:textColor="@color/purple_light"
+                                                    android:textSize="12sp"
+                                                    app:layout_constraintStart_toStartOf="parent"
+                                                    app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
-                        <TextView
-                            android:id="@+id/deliveryCharge"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/rubik_medium"
-                            android:textColor="@color/purple"
-                            android:textSize="12sp"
-                            app:layout_constraintBottom_toBottomOf="@+id/textView24"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/textView24" />
+                                                <TextView
+                                                    android:id="@+id/deliveryCharge"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:fontFamily="@font/rubik_medium"
+                                                    android:textColor="@color/purple"
+                                                    android:textSize="12sp"
+                                                    app:layout_constraintBottom_toBottomOf="@+id/textView24"
+                                                    app:layout_constraintEnd_toEndOf="parent"
+                                                    app:layout_constraintTop_toTopOf="@+id/textView24" />
 
-                        <TextView
-                            android:id="@+id/total"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/rubik_medium"
-                            android:textColor="@color/purple"
-                            android:textSize="12sp"
-                            app:layout_constraintBottom_toBottomOf="@+id/textView23"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/textView23" />
+                                                <TextView
+                                                    android:id="@+id/total"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:fontFamily="@font/rubik_medium"
+                                                    android:textColor="@color/purple"
+                                                    android:textSize="12sp"
+                                                    app:layout_constraintBottom_toBottomOf="@+id/textView23"
+                                                    app:layout_constraintEnd_toEndOf="parent"
+                                                    app:layout_constraintTop_toTopOf="@+id/textView23" />
 
-                        <TextView
-                            android:id="@+id/textView18"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:fontFamily="@font/rubik_medium"
-                            android:text="Total Cloths"
-                            android:textColor="@color/purple_light"
-                            android:textSize="12sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView23" />
+                                                <TextView
+                                                    android:id="@+id/textView18"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="16dp"
+                                                    android:fontFamily="@font/rubik_medium"
+                                                    android:text="Total Cloths"
+                                                    android:textColor="@color/purple_light"
+                                                    android:textSize="12sp"
+                                                    app:layout_constraintStart_toStartOf="parent"
+                                                    app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
-                        <TextView
-                            android:id="@+id/totalCloth"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/rubik_medium"
-                            android:textColor="@color/purple"
-                            android:textSize="12sp"
-                            app:layout_constraintBottom_toBottomOf="@+id/textView18"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/textView18" />
-                        <TextView
-                            android:id="@+id/textView25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="24dp"
+                                                <TextView
+                                                    android:id="@+id/totalCloth"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:fontFamily="@font/rubik_medium"
+                                                    android:textColor="@color/purple"
+                                                    android:textSize="12sp"
+                                                    app:layout_constraintBottom_toBottomOf="@+id/textView18"
+                                                    app:layout_constraintEnd_toEndOf="parent"
+                                                    app:layout_constraintTop_toTopOf="@+id/textView18" />
+                                                <TextView
+                                                    android:id="@+id/textView25"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="24dp"
 
-                            android:fontFamily="@font/rubik_bold"
-                            android:text="Choose Payment Option"
-                            android:textColor="@color/black"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+                                                    android:fontFamily="@font/rubik_bold"
+                                                    android:text="Choose Payment Option"
+                                                    android:textColor="@color/black"
+                                                    app:layout_constraintStart_toStartOf="parent"
+                                                    app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
-                        <RadioGroup
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:orientation="horizontal"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView25">
+                                                <RadioGroup
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="8dp"
+                                                    android:orientation="horizontal"
+                                                    app:layout_constraintStart_toStartOf="parent"
+                                                    app:layout_constraintTop_toBottomOf="@+id/textView25">
 
-                            <RadioButton
-                                android:id="@+id/onlinePayment"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="16dp"
-                                android:fontFamily="@font/rubik_bold"
-                                android:textSize="12sp"
-                                android:text="Online Payment"
-                                android:textColor="@color/purple_light" />
+                                                    <RadioButton
+                                                        android:id="@+id/onlinePayment"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginRight="16dp"
+                                                        android:fontFamily="@font/rubik_bold"
+                                                        android:textSize="12sp"
+                                                        android:text="Online Payment"
+                                                        android:textColor="@color/purple_light" />
 
-                            <RadioButton
-                                android:id="@+id/cashOnDelivery"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/rubik_bold"
-                                android:text="Cash on Delivery"
-                                android:textSize="12sp"
-                                android:textColor="@color/purple_light" />
+                                                    <RadioButton
+                                                        android:id="@+id/cashOnDelivery"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:fontFamily="@font/rubik_bold"
+                                                        android:text="Cash on Delivery"
+                                                        android:textSize="12sp"
+                                                        android:textColor="@color/purple_light" />
 
-                        </RadioGroup>
-
+                                                </RadioGroup>
 
 
 

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#f0f8ff"
+    android:layout_marginBottom="8dp"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_bold"
+        android:textColor="@color/purple"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/description1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/rubik_medium"
+       app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title1" />
+
+    <TextView
+        android:id="@+id/minOrderPrice1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description1"/>
+
+    <TextView
+        android:id="@+id/maximumDiscount1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_medium"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/minOrderPrice1"/>
+
+    <TextView
+        android:id="@+id/promoCode1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/coupon_background"
+        android:fontFamily="@font/rubik_bold"
+        android:letterSpacing="0.2"
+        android:padding="8dp"
+       app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/maximumDiscount1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Tab to Copy"
+        android:fontFamily="@font/rubik_bold"
+        android:textColor="@color/purple_light"
+        app:layout_constraintBottom_toBottomOf="@+id/promoCode1"
+        app:layout_constraintStart_toEndOf="@+id/promoCode1"
+        app:layout_constraintTop_toTopOf="@+id/promoCode1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

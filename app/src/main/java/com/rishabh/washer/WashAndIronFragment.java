@@ -80,7 +80,7 @@ public class WashAndIronFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Bundle  bundle = new Bundle();
-                bundle.putString("totalPrice" , Integer.toString(totalPrice));
+                bundle.putString("pricing" , Integer.toString(totalPrice));
                 bundle.putString("totalItem" , Integer.toString(totalItems));
                 bundle.putString("serviceType" , getArguments().getString("serviceType"));
 
@@ -168,7 +168,7 @@ public class WashAndIronFragment extends Fragment {
 
     private void loadrecyclerViewData() {
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("items");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("dryCleaningItem");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
