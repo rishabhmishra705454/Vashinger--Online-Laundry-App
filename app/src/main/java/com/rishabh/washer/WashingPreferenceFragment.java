@@ -153,7 +153,8 @@ public class WashingPreferenceFragment extends Fragment {
                 }
 
                 //getting washing temperature
-                washingTemperature = binding.editText.getText().toString();
+                washingTemperature ="30";
+                        // binding.editText.getText().toString();
 
                 //getting other services
                 if (binding.dryHeater.isChecked()) {

@@ -97,6 +97,7 @@
                 </LinearLayout>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/colorPreferenceLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
@@ -158,6 +159,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/washingTemperatureLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
@@ -189,6 +191,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:tint="@color/purple_light" />
 
+                        <!--
                         <EditText
                             android:id="@+id/editText"
                             android:layout_width="50dp"
@@ -201,19 +204,40 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="@+id/checkBox4" />
 
-                        <CheckBox
-                            android:id="@+id/checkBox4"
+-->
+                        <RadioGroup
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
                             android:layout_marginTop="8dp"
-                            android:checked="true"
-                            android:clickable="false"
-                            android:text="Celsius"
-                            android:textColor="@color/purple_light"
-                            android:textStyle="bold"
-                            app:layout_constraintStart_toEndOf="@+id/editText"
-                            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView8">
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Normal Wash"
+                                android:textStyle="bold"
+                                android:textColor="@color/purple_light"/>
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Hot Wash"
+                                android:textStyle="bold"
+                                android:textColor="@color/purple_light"
+                                android:layout_marginStart="2dp"/>
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:text="Cold Wash"
+                                android:textStyle="bold"
+                                android:textColor="@color/purple_light"/>
+
+                        </RadioGroup>
+
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -222,6 +246,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/otherLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
@@ -271,7 +296,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
                             android:fontFamily="@font/rubik_bold"
-                            android:text="+ \u20B9 10 / Kg"
+                            android:text="+ ₦ 10 / Kg"
                             android:textColor="@color/purple_light"
                             app:layout_constraintBottom_toBottomOf="@+id/dryHeater"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -327,6 +352,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/additionalNoteLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"

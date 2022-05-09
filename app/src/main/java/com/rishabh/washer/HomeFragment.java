@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Bundle washAndIronBundle = new Bundle();
                 washAndIronBundle.putString("serviceType", "Wash And Iron");
-                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_kgPricingFragment, washAndIronBundle);
+                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_bagPriceingFragment, washAndIronBundle);
 
             }
         });
@@ -73,7 +73,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putString("serviceType" , "Wash And Fold");
-                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_kgPricingFragment,bundle);
+                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_bagPriceingFragment,bundle);
             }
         });
 
@@ -82,7 +82,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putString("serviceType" , "Iron");
-                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_washAndIronFragment, bundle);
+                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_ironFragment, bundle);
 
             }
         });

@@ -161,17 +161,17 @@ public class NoPaymentCheckoutFragment extends Fragment {
             binding.icUseSoftner.setImageResource(R.drawable.ic_close);
         }
 
-        binding.txtPrice.setText("\u20B9 " +  price +" / Kg");
+        binding.txtPrice.setText("₦ " +  price +" / Kg");
 
         if (getArguments().getBoolean("dryHeater")==true){
 
-            binding.txtAdditionalPrice.setText("\u20B9 10 / Kg");
+            binding.txtAdditionalPrice.setText("₦ 10 / Kg");
         }else {
-            binding.txtAdditionalPrice.setText("\u20B9 0");
+            binding.txtAdditionalPrice.setText("₦ 0");
         }
 
-        binding.txtTotalPrice.setText("\u20B9 " + getArguments().getString("pricing") +" / Kg ");
-        binding.txtTotalPrice1.setText("\u20B9 " + getArguments().getString("pricing") +" / Kg ");
+        binding.txtTotalPrice.setText("₦ " + getArguments().getString("pricing") +" / Kg ");
+        binding.txtTotalPrice1.setText("₦ " + getArguments().getString("pricing") +" / Kg ");
 
 
         binding.doneBtn.setOnClickListener(new View.OnClickListener() {

@@ -75,9 +75,9 @@ public class CheckoutDetailFragment extends Fragment {
         binding.pickupDateAndTime.setText(getArguments().getString("pickupDate") + " | " + getArguments().getString("pickupTime"));
         binding.pickupAddress.setText(getArguments().getString("locality") + ", " + getArguments().getString("pincode"));
         binding.contactNo.setText(phoneNo);
-        binding.subTotal.setText("\u20B9 " + getArguments().getString("pricing"));
-        binding.deliveryCharge.setText("\u20B9 0");
-        binding.total.setText("\u20B9 " + getArguments().getString("pricing"));
+        binding.subTotal.setText("₦ " + getArguments().getString("pricing"));
+        binding.deliveryCharge.setText("₦ 0");
+        binding.total.setText("₦ " + getArguments().getString("pricing"));
         binding.totalCloth.setText(getArguments().getString("totalItem"));
 
         binding.backBtn.setOnClickListener(new View.OnClickListener() {

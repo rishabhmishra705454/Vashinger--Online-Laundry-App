@@ -30,18 +30,18 @@ public class KgPricingFragment extends Fragment {
 
         if (getArguments().getString("serviceType").equals("Wash And Iron")) {
             if (binding.bundlePackaging.isChecked()) {
-                binding.washandIronPricing.setText("\u20B9 89 / Kg");
+                binding.washandIronPricing.setText("₦ 89 / Kg");
             }
             if (binding.multiPackaging.isChecked()) {
-                binding.washandIronPricing.setText("\u20B9 109 / Kg");
+                binding.washandIronPricing.setText("₦ 109 / Kg");
             }
         }
         if (getArguments().getString("serviceType").equals("Wash And Fold")){
             if (binding.bundlePackaging.isChecked()) {
-                binding.washandIronPricing.setText("\u20B9 59 / Kg");
+                binding.washandIronPricing.setText("₦ 59 / Kg");
             }
             if (binding.multiPackaging.isChecked()) {
-                binding.washandIronPricing.setText("\u20B9 79 / Kg");
+                binding.washandIronPricing.setText("₦ 79 / Kg");
             }
         }
 
@@ -60,10 +60,10 @@ public class KgPricingFragment extends Fragment {
                 binding.multiPackagingCard.setBackground(ContextCompat.getDrawable(view.getContext(), R.color.white));
 
                 if (getArguments().getString("serviceType").equals("Wash And Iron")){
-                    binding.washandIronPricing.setText("\u20B9 89 / Kg");
+                    binding.washandIronPricing.setText("₦ 89 / Kg");
                 }
                 if (getArguments().getString("serviceType").equals("Wash And Fold")){
-                    binding.washandIronPricing.setText("\u20B9 59 / Kg");
+                    binding.washandIronPricing.setText("₦ 59 / Kg");
                 }
 
             }
@@ -78,10 +78,10 @@ public class KgPricingFragment extends Fragment {
 
 
                 if (getArguments().getString("serviceType").equals("Wash And Iron")){
-                    binding.washandIronPricing.setText("\u20B9 109 / Kg");
+                    binding.washandIronPricing.setText("₦ 109 / Kg");
                 }
                 if (getArguments().getString("serviceType").equals("Wash And Fold")){
-                    binding.washandIronPricing.setText("\u20B9 79 / Kg");
+                    binding.washandIronPricing.setText("₦ 79 / Kg");
                 }
             }
         });
@@ -90,10 +90,10 @@ public class KgPricingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (getArguments().getString("serviceType").equals("Wash And Iron")){
-                    binding.washandIronPricing.setText("\u20B9 89 / Kg");
+                    binding.washandIronPricing.setText("₦ 89 / Kg");
                 }
                 if (getArguments().getString("serviceType").equals("Wash And Fold")){
-                    binding.washandIronPricing.setText("\u20B9 59 / Kg");
+                    binding.washandIronPricing.setText("₦ 59 / Kg");
                 }
 
             }
@@ -103,10 +103,10 @@ public class KgPricingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (getArguments().getString("serviceType").equals("Wash And Iron")){
-                    binding.washandIronPricing.setText("\u20B9 109 / Kg");
+                    binding.washandIronPricing.setText("₦ 109 / Kg");
                 }
                 if (getArguments().getString("serviceType").equals("Wash And Fold")){
-                    binding.washandIronPricing.setText("\u20B9 79 / Kg");
+                    binding.washandIronPricing.setText("₦ 79 / Kg");
                 }
             }
         });
@@ -161,18 +161,18 @@ public class KgPricingFragment extends Fragment {
 
         if (getArguments().getString("serviceType") == "Wash And Iron") {
             if (binding.bundlePackaging.isChecked()) {
-                binding.washandIronPricing.setText("\u20B9 89 / Kg");
+                binding.washandIronPricing.setText("₦ 89 / Kg");
             }
             if (binding.multiPackaging.isChecked()) {
-                binding.washandIronPricing.setText("\u20B9 109 / Kg");
+                binding.washandIronPricing.setText("₦ 109 / Kg");
             }
         }
         if (getArguments().getString("serviceType")=="Wash And Fold"){
             if (binding.bundlePackaging.isChecked()) {
-                binding.washandIronPricing.setText("\u20B9 59 / Kg");
+                binding.washandIronPricing.setText("₦ 59 / Kg");
             }
             if (binding.multiPackaging.isChecked()) {
-                binding.washandIronPricing.setText("\u20B9 79 / Kg");
+                binding.washandIronPricing.setText("₦ 79 / Kg");
             }
         }
 

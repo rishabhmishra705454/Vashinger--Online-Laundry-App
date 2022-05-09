@@ -13,8 +13,11 @@
             android:id="@+id/action_nav_home_to_washAndIronFragment"
             app:destination="@id/washAndIronFragment" />
         <action
-            android:id="@+id/action_nav_home_to_kgPricingFragment"
-            app:destination="@id/kgPricingFragment" />
+            android:id="@+id/action_nav_home_to_ironFragment"
+            app:destination="@id/ironFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_bagPriceingFragment"
+            app:destination="@id/bagPriceingFragment" />
     </fragment>
     <fragment
         android:id="@+id/nav_order"
@@ -183,4 +186,22 @@
         android:name="com.rishabh.washer.DisplayOrderDetailFragment"
         android:label="fragment_display_order_detail"
         tools:layout="@layout/fragment_display_order_detail" />
+    <fragment
+        android:id="@+id/ironFragment"
+        android:name="com.rishabh.washer.IronFragment"
+        android:label="fragment_iron"
+        tools:layout="@layout/fragment_iron" >
+        <action
+            android:id="@+id/action_ironFragment_to_washingPreferenceFragment"
+            app:destination="@id/washingPreferenceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bagPriceingFragment"
+        android:name="com.rishabh.washer.BagPriceingFragment"
+        android:label="fragment_bag_priceing"
+        tools:layout="@layout/fragment_bag_priceing" >
+        <action
+            android:id="@+id/action_bagPriceingFragment_to_washingPreferenceFragment"
+            app:destination="@id/washingPreferenceFragment" />
+    </fragment>
 </navigation>

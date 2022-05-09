@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rishabh.washer.Interfaces.DryCleaningCartUpdateInterface;
 import com.rishabh.washer.adapter.AddCartAdapter;
 import com.rishabh.washer.adapter.AddDetailAdapter;
 import com.rishabh.washer.databinding.FragmentWashAndIronBinding;
@@ -71,6 +72,7 @@ public class WashAndIronFragment extends Fragment {
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
         binding.cartRecyclerView.setLayoutManager(layoutManager);
 
+
         loadCartRecyclerViewData();
         loadrecyclerViewData();
         checkCartIsEmptyOrNot();
@@ -99,7 +101,8 @@ public class WashAndIronFragment extends Fragment {
     }
 
     private void loadCartRecyclerViewData() {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("cart").child(uid);
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("cart").child("dryCleaning").child(uid);
         reference.addValueEventListener(new ValueEventListener() {
 
             @Override
@@ -136,10 +139,12 @@ public class WashAndIronFragment extends Fragment {
         });
 
 
+
+
     }
 
     private void checkCartIsEmptyOrNot() {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("cart").child(uid);
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("cart").child("dryCleaning").child(uid);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

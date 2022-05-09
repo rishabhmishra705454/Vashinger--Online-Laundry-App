@@ -50,11 +50,11 @@ public class DisplayOrderAdapter extends RecyclerView.Adapter<DisplayOrderAdapte
        // holder.deliveryTime.setText(displayOrderModel.getDeliveryDate() + " | " + displayOrderModel.getDeliveryTime());
       //  holder.deliveryAddress.setText(displayOrderModel.getAddress());
        // holder.items.setText(displayOrderModel.getTotalItem());
-       // holder.price.setText("\u20B9 " +displayOrderModel.getTotalPrice());
+       // holder.price.setText("₦ " +displayOrderModel.getTotalPrice());
 
         holder.orderPlaced.setText("placed on " + displayOrderModel.getOrderDate() + ", " + displayOrderModel.getOrderTime());
         holder.serviceType.setText(displayOrderModel.getServiceType() + " (" + displayOrderModel.getTotalItem() + " items )");
-        holder.pricing.setText("\u20B9 " + displayOrderModel.getTotalPrice());
+        holder.pricing.setText("₦ " + displayOrderModel.getTotalPrice());
         holder.orderId.setText("order id : " + displayOrderModel.getId());
         holder.status.setText(displayOrderModel.getStatus());
 

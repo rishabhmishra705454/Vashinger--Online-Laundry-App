@@ -1,7 +1,6 @@
 package com.rishabh.washer.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,15 +15,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.rishabh.washer.R;
 import com.rishabh.washer.model.AddCartModel;
-import com.rishabh.washer.model.AddDetailModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class AddCartAdapter extends RecyclerView.Adapter<AddCartAdapter.ViewHolder> {
+public class AddCartIronAdapter extends RecyclerView.Adapter<AddCartIronAdapter.ViewHolder> {
 
     private FirebaseAuth mAuth;
     private Context context;
@@ -34,7 +31,7 @@ public class AddCartAdapter extends RecyclerView.Adapter<AddCartAdapter.ViewHold
 
     int totalQuantity;
 
-    public AddCartAdapter( Context context, ArrayList<AddCartModel> addCartModelArrayList) {
+    public AddCartIronAdapter(Context context, ArrayList<AddCartModel> addCartModelArrayList) {
         this.context = context;
         this.addCartModelArrayList = addCartModelArrayList;
     }
@@ -72,7 +69,7 @@ public class AddCartAdapter extends RecyclerView.Adapter<AddCartAdapter.ViewHold
 
                     AddCartModel addCartModel = addCartModelArrayList.get(position);
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("cart").child("dryCleaning").child(uid).child(addCartModel.getTitle());
+                    DatabaseReference myRef = database.getReference("cart").child("iron").child(uid).child(addCartModel.getTitle());
 
                     AddCartModel addCartModel1 = new AddCartModel(addCartModel.getImage(), addCartModel.getTitle(),addCartModel.getPrice() , Integer.toString(totalQuantity) ,  Integer.toString(Integer.valueOf(addCartModel.getPrice())* totalQuantity), " added") ;
 
@@ -94,7 +91,7 @@ public class AddCartAdapter extends RecyclerView.Adapter<AddCartAdapter.ViewHold
                     totalQuantity = quantity - 1;
 
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("cart").child("dryCleaning").child(uid).child(addCartModel.getTitle());
+                    DatabaseReference myRef = database.getReference("cart").child("iron").child(uid).child(addCartModel.getTitle());
 
                     AddCartModel addCartModel1 = new AddCartModel(addCartModel.getImage(), addCartModel.getTitle(),addCartModel.getPrice() , Integer.toString(totalQuantity) , Integer.toString(Integer.valueOf(addCartModel.getPrice())* totalQuantity) ," added") ;
 
@@ -110,7 +107,7 @@ public class AddCartAdapter extends RecyclerView.Adapter<AddCartAdapter.ViewHold
                 AddCartModel addCartModel = addCartModelArrayList.get(position);
 
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("cart").child("dryCleaning").child(uid).child(addCartModel.getTitle());
+                DatabaseReference myRef = database.getReference("cart").child("iron").child(uid).child(addCartModel.getTitle());
                 myRef.removeValue();
 
                 addCartModelArrayList.remove(addCartModel.getTitle());
@@ -139,6 +136,7 @@ public class AddCartAdapter extends RecyclerView.Adapter<AddCartAdapter.ViewHold
             quantity = itemView.findViewById(R.id.textView4);
             add = itemView.findViewById(R.id.addBtn);
             minus = itemView.findViewById(R.id.imageButton);
+
             remove = itemView.findViewById(R.id.imageButton2);
         }
     }

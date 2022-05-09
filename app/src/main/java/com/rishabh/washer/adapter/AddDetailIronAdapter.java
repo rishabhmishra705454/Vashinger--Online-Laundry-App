@@ -23,13 +23,13 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class AddDetailAdapter extends RecyclerView.Adapter<AddDetailAdapter.ViewHolder> {
+public class AddDetailIronAdapter extends RecyclerView.Adapter<AddDetailIronAdapter.ViewHolder> {
 
     private FirebaseAuth mAuth;
     private Context context;
     private ArrayList<AddDetailModel> addDetailModelArrayList;
 
-    public AddDetailAdapter(Context context, ArrayList<AddDetailModel> addDetailModelArrayList) {
+    public AddDetailIronAdapter(Context context, ArrayList<AddDetailModel> addDetailModelArrayList) {
         this.context = context;
         this.addDetailModelArrayList = addDetailModelArrayList;
     }
@@ -61,7 +61,7 @@ public class AddDetailAdapter extends RecyclerView.Adapter<AddDetailAdapter.View
 
 
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("cart").child("dryCleaning").child(uid);
+                DatabaseReference myRef = database.getReference("cart").child("iron").child(uid);
                 AddCartModel addCartModel = new AddCartModel(addDetailModel.getImage() , addDetailModel.getTitle() , addDetailModel.getPrice() , "1", Integer.toString(Integer.valueOf(addDetailModel.getPrice())* 1) ,"added");
 
                 myRef.child(addDetailModel.getTitle()).setValue(addCartModel);
