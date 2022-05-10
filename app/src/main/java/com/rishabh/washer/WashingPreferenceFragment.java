@@ -1,15 +1,22 @@
 package com.rishabh.washer;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.rishabh.washer.databinding.FragmentWashingPreferenceBinding;
 import com.squareup.picasso.Picasso;
 
@@ -21,8 +28,13 @@ public class WashingPreferenceFragment extends Fragment {
 
     String colorPreference, washingTemperature, additionalNote;
     boolean dryHeater, scentedDetergent, useSoftner;
+    ProgressDialog progressDialog;
 
     String pricing;
+
+    String dryHeaterPrice;
+    String scentedDetergentPrice;
+    String useSoftnerPrice;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,6 +42,88 @@ public class WashingPreferenceFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentWashingPreferenceBinding.inflate(getLayoutInflater(), container, false);
         View view = binding.getRoot();
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Please wait...");
+        progressDialog.setCancelable(false);
+
+        progressDialog.show();
+
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("settings");
+
+        myRef.child("washingPreferenceSetting").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                progressDialog.show();
+
+                boolean isColorPreference = snapshot.child("isColorPreference").getValue(Boolean.class);
+                boolean isWashingTemp = snapshot.child("isWashingTemp").getValue(Boolean.class);
+                boolean isDryHeater = snapshot.child("isDryHeater").getValue(Boolean.class);
+                boolean isScentedDetergent = snapshot.child("isScentedDetergent").getValue(Boolean.class);
+                boolean isUseSoftner = snapshot.child("isUseSoftner").getValue(Boolean.class);
+
+                boolean isAdditionalNote = snapshot.child("isAdditionalNote").getValue(Boolean.class);
+                dryHeaterPrice = snapshot.child("dryHeaterPrice").getValue(String.class);
+                scentedDetergentPrice = snapshot.child("scentedDetergentPrice").getValue(String.class);
+                useSoftnerPrice = snapshot.child("useSoftnerPrice").getValue(String.class);
+
+
+                if (isColorPreference) {
+                    binding.colorPreferenceLayout.setVisibility(View.VISIBLE);
+                } else {
+
+                    binding.colorPreferenceLayout.setVisibility(View.GONE);
+                }
+
+                if (isWashingTemp) {
+                    binding.washingTemperatureLayout.setVisibility(View.VISIBLE);
+                } else {
+                    binding.washingTemperatureLayout.setVisibility(View.GONE);
+                }
+
+                if (isDryHeater) {
+                    binding.dryHeaterLayout.setVisibility(View.VISIBLE);
+                } else {
+                    binding.dryHeaterLayout.setVisibility(View.GONE);
+                }
+
+                if (isScentedDetergent) {
+                    binding.scentedDetergentLayout.setVisibility(View.VISIBLE);
+                } else {
+
+                    binding.scentedDetergentLayout.setVisibility(View.GONE);
+
+                }
+
+                if (isUseSoftner) {
+                    binding.useSoftnerLayout.setVisibility(View.VISIBLE);
+                } else {
+                    binding.useSoftnerLayout.setVisibility(View.GONE);
+                }
+
+                if (isAdditionalNote) {
+                    binding.additionalNoteLayout.setVisibility(View.VISIBLE);
+                } else {
+                    binding.additionalNoteLayout.setVisibility(View.GONE);
+                }
+
+                binding.dryHeaterPrice.setText(dryHeaterPrice + "Rs");
+                binding.scentedDetergentPrice.setText(scentedDetergentPrice + "Rs");
+                binding.useSoftnerPrice.setText(useSoftnerPrice + "Rs");
+
+
+                progressDialog.dismiss();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+                progressDialog.dismiss();
+            }
+        });
+
 
         binding.colorClothCheckbox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,46 +247,51 @@ public class WashingPreferenceFragment extends Fragment {
                 }
 
                 //getting washing temperature
-                washingTemperature ="30";
-                        // binding.editText.getText().toString();
+                washingTemperature = "30";
+                // binding.editText.getText().toString();
 
                 //getting other services
                 if (binding.dryHeater.isChecked()) {
                     dryHeater = true;
+                    int totalPricing = Integer.valueOf(getArguments().getString("pricing")) +Integer.valueOf(dryHeaterPrice);
+                    pricing = Integer.toString(totalPricing);
                 } else {
                     dryHeater = false;
                 }
                 if (binding.scentedDetergent.isChecked()) {
                     scentedDetergent = true;
+                    int totalPricing = Integer.valueOf(getArguments().getString("pricing")) +Integer.valueOf(scentedDetergentPrice);
+                    pricing = Integer.toString(totalPricing);
                 } else {
                     scentedDetergent = false;
                 }
                 if (binding.useSoftner.isChecked()) {
                     useSoftner = true;
+                    int totalPricing = Integer.valueOf(getArguments().getString("pricing")) +Integer.valueOf(useSoftnerPrice);
+                    pricing = Integer.toString(totalPricing);
                 } else {
                     useSoftner = false;
                 }
 
                 additionalNote = binding.additionalNotes.getText().toString();
 
-                //checking dry heater
-                if (dryHeater == true) {
-
-                    int totalPricing = Integer.valueOf(getArguments().getString("pricing")) + 10;
-                    pricing = Integer.toString(totalPricing);
-                } else {
-                    pricing = getArguments().getString("pricing");
-                }
-
-
+                //passing data
                 Bundle washingPreferenceBundle = new Bundle();
 
-                washingPreferenceBundle.putString("serviceType", getArguments().getString("serviceType"));
-               if (getArguments().getString("serviceType").equals("Wash And Iron") || getArguments().getString("serviceType").equals("Wash And Fold")){
-                   washingPreferenceBundle.putString("packagingType", getArguments().getString("packagingType"));
+                //handling wash and iron
+                if (getArguments().getString("serviceType").equals("Wash And Iron")){
 
-                   washingPreferenceBundle.putString("pricing", pricing);
-               }
+                    washingPreferenceBundle.putString("serviceType", getArguments().getString("serviceType"));
+                    washingPreferenceBundle.putString("packagingType", getArguments().getString("packagingType"));
+
+                }
+
+                washingPreferenceBundle.putString("serviceType", getArguments().getString("serviceType"));
+                if (getArguments().getString("serviceType").equals("Wash And Iron") || getArguments().getString("serviceType").equals("Wash And Fold")) {
+                    washingPreferenceBundle.putString("packagingType", getArguments().getString("packagingType"));
+
+                    washingPreferenceBundle.putString("pricing", pricing);
+                }
 
                 washingPreferenceBundle.putString("colorPreference", colorPreference);
                 washingPreferenceBundle.putString("washingTemperature", washingTemperature);

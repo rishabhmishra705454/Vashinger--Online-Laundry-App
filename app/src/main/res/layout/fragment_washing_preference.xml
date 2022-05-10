@@ -279,73 +279,104 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:tint="@color/purple_light" />
 
-                        <CheckBox
-                            android:id="@+id/dryHeater"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Dry Heater"
-                            android:textColor="@color/purple_light"
-                            android:textStyle="bold"
+                            android:orientation="vertical"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+                            app:layout_constraintTop_toBottomOf="@+id/textView9">
 
-                        <TextView
-                            android:id="@+id/textView44"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp"
-                            android:fontFamily="@font/rubik_bold"
-                            android:text="+ ₦ 10 / Kg"
-                            android:textColor="@color/purple_light"
-                            app:layout_constraintBottom_toBottomOf="@+id/dryHeater"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/dryHeater" />
-
-                        <CheckBox
-                            android:id="@+id/scentedDetergent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Scented Detergent"
-                            android:textColor="@color/purple_light"
-                            android:textStyle="bold"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/dryHeater" />
+                            <RelativeLayout
+                                android:id="@+id/dryHeaterLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
 
 
-                        <TextView
-                            android:id="@+id/textView48"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp"
-                            android:fontFamily="@font/rubik_bold"
-                            android:text="FREE"
-                            android:textColor="@color/green"
-                            app:layout_constraintBottom_toBottomOf="@+id/scentedDetergent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/scentedDetergent" />
+                                <CheckBox
+                                    android:id="@+id/dryHeater"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="Dry Heater"
+                                    android:textColor="@color/purple_light"
+                                    android:textStyle="bold" />
 
-                        <CheckBox
-                            android:id="@+id/useSoftner"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Use Softner"
-                            android:textColor="@color/purple_light"
-                            android:textStyle="bold"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/scentedDetergent" />
+                                <TextView
+                                    android:id="@+id/dryHeaterPrice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginEnd="16dp"
+                                    android:fontFamily="@font/rubik_bold"
+                                    android:text="+ ₦ 10 / Kg"
+                                    android:textColor="@color/purple_light" />
 
-                        <TextView
-                            android:id="@+id/textView49"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp"
-                            android:fontFamily="@font/rubik_bold"
-                            android:text="FREE"
-                            android:textColor="@color/green"
-                            app:layout_constraintBottom_toBottomOf="@+id/useSoftner"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/useSoftner" />
+
+
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:id="@+id/scentedDetergentLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+
+                                <CheckBox
+                                    android:id="@+id/scentedDetergent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Scented Detergent"
+                                    android:textColor="@color/purple_light"
+                                    android:textStyle="bold" />
+
+
+                                <TextView
+                                    android:id="@+id/scentedDetergentPrice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginEnd="16dp"
+                                    android:fontFamily="@font/rubik_bold"
+                                    android:text="FREE"
+                                    android:textColor="@color/green" />
+
+
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:id="@+id/useSoftnerLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+
+
+                                <CheckBox
+                                    android:id="@+id/useSoftner"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Use Softner"
+                                    android:textColor="@color/purple_light"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/useSoftnerPrice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginEnd="16dp"
+                                    android:fontFamily="@font/rubik_bold"
+                                    android:text="FREE"
+                                    android:textColor="@color/green" />
+
+                            </RelativeLayout>
+
+
+
+
+
+                        </LinearLayout>
+
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
