@@ -11,7 +11,7 @@ public class OrderModel {
     public OrderModel() {
     }
 
-    public OrderModel(String id, String uid, String orderDate, String orderTime, String paymentType, String status, String colorPreference, String washingTemperature, String additionalNote, String pickupDate, String pickupTime, String deliveryDate, String deliveryTime, String totalPrice, String totalItem, String serviceType, String pricing, String packagingType, String address, String pincode, String locality, String latitude, String longitude, String phoneNo, String houseNo, String landmark, String fullName, String promoCode, Boolean dryHeater, Boolean scentedDetergent, Boolean useSoftner, String deliveryBoy, String laundry) {
+    public OrderModel(String id, String uid, String orderDate, String orderTime, String paymentType, String status, String colorPreference, String washingTemperature, String additionalNote, String pickupDate, String pickupTime, String deliveryDate, String deliveryTime, String totalPrice, String totalItem, String serviceType, String pricing, String packagingType, String address, String pincode, String locality, String latitude, String longitude, String phoneNo, String houseNo, String landmark, String fullName, String promoCode, Boolean dryHeater, Boolean scentedDetergent, Boolean useSoftner, String deliveryBoy, String laundry  ) {
         this.id = id;
         this.uid = uid;
         this.orderDate = orderDate;

@@ -31,6 +31,7 @@ public class WashingPreferenceFragment extends Fragment {
     ProgressDialog progressDialog;
 
     String pricing;
+    int additionalPrice = 0;
 
     String dryHeaterPrice;
     String scentedDetergentPrice;
@@ -47,6 +48,8 @@ public class WashingPreferenceFragment extends Fragment {
         progressDialog.setCancelable(false);
 
         progressDialog.show();
+
+        pricing = getArguments().getString("pricing");
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -247,28 +250,39 @@ public class WashingPreferenceFragment extends Fragment {
                 }
 
                 //getting washing temperature
+
+
                 washingTemperature = "30";
                 // binding.editText.getText().toString();
 
                 //getting other services
                 if (binding.dryHeater.isChecked()) {
                     dryHeater = true;
-                    int totalPricing = Integer.valueOf(getArguments().getString("pricing")) +Integer.valueOf(dryHeaterPrice);
+                    int totalPricing = Integer.valueOf(pricing) + Integer.valueOf(dryHeaterPrice);
                     pricing = Integer.toString(totalPricing);
+
+                    additionalPrice = additionalPrice + Integer.valueOf(dryHeaterPrice);
+
                 } else {
                     dryHeater = false;
                 }
                 if (binding.scentedDetergent.isChecked()) {
                     scentedDetergent = true;
-                    int totalPricing = Integer.valueOf(getArguments().getString("pricing")) +Integer.valueOf(scentedDetergentPrice);
+                    int totalPricing = Integer.valueOf(pricing) + Integer.valueOf(scentedDetergentPrice);
                     pricing = Integer.toString(totalPricing);
+
+                    additionalPrice = additionalPrice + Integer.valueOf(scentedDetergentPrice);
+
                 } else {
                     scentedDetergent = false;
                 }
                 if (binding.useSoftner.isChecked()) {
                     useSoftner = true;
-                    int totalPricing = Integer.valueOf(getArguments().getString("pricing")) +Integer.valueOf(useSoftnerPrice);
+                    int totalPricing = Integer.valueOf(getArguments().getString("pricing")) + Integer.valueOf(useSoftnerPrice);
                     pricing = Integer.toString(totalPricing);
+
+                    additionalPrice = additionalPrice + Integer.valueOf(useSoftnerPrice);
+
                 } else {
                     useSoftner = false;
                 }
@@ -279,17 +293,20 @@ public class WashingPreferenceFragment extends Fragment {
                 Bundle washingPreferenceBundle = new Bundle();
 
                 //handling wash and iron
-                if (getArguments().getString("serviceType").equals("Wash And Iron")){
+                if (getArguments().getString("serviceType").equals("Wash And Iron")) {
 
                     washingPreferenceBundle.putString("serviceType", getArguments().getString("serviceType"));
                     washingPreferenceBundle.putString("packagingType", getArguments().getString("packagingType"));
+                    washingPreferenceBundle.putString("pricing", getArguments().getString("pricing"));
+                    washingPreferenceBundle.putString("additionalPrice", String.valueOf(additionalPrice));
+                    washingPreferenceBundle.putString("totalPricing", pricing);
 
                 }
 
                 washingPreferenceBundle.putString("serviceType", getArguments().getString("serviceType"));
-                if (getArguments().getString("serviceType").equals("Wash And Iron") || getArguments().getString("serviceType").equals("Wash And Fold")) {
+                if (getArguments().getString("serviceType").equals("Wash And Fold")) {
                     washingPreferenceBundle.putString("packagingType", getArguments().getString("packagingType"));
-
+                    washingPreferenceBundle.putString("serviceType", getArguments().getString("serviceType"));
                     washingPreferenceBundle.putString("pricing", pricing);
                 }
 

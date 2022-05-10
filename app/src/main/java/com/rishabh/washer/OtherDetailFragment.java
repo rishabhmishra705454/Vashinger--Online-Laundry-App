@@ -954,9 +954,12 @@ public class OtherDetailFragment extends Fragment {
                     Bundle detail = new Bundle();
                     detail.putString("serviceType", getArguments().getString("serviceType"));
                     detail.putString("packagingType", getArguments().getString("packagingType"));
+                    detail.putString("additionalPrice",getArguments().getString("additionalPrice"));
+
+                    detail.putString("pricing", getArguments().getString("pricing"));
+                    detail.putString("totalPricing", getArguments().getString("totalPricing"));
 
                     detail.putString("totalItem" , getArguments().getString("totalItem"));
-                    detail.putString("pricing", getArguments().getString("pricing"));
                     detail.putString("colorPreference", getArguments().getString("colorPreference"));
                     detail.putString("washingTemperature", getArguments().getString("washingTemperature"));
                     detail.putBoolean("dryHeater", getArguments().getBoolean("dryHeater"));
