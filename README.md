@@ -16,6 +16,12 @@ Welcome to the official repository of Vashinger - your go-to solution for conven
 - **Provider Dashboard:** Dashboard for laundry service providers to manage orders and schedules.
 - **Admin Panel:** Admin interface to manage users, services, and overall system settings.
 
+## Download the App
+
+You can download the latest version of the Vashinger app from the following link:
+
+[Download Vashinger APK](https://drive.google.com/file/d/1HPhDMW9BO8VT8v-Upghj3xX_PFBaOB3W/view?usp=sharing)
+
 ## Screenshots 
 ![](https://i.imgur.com/EjTzi7u.jpg)
 ![](https://i.imgur.com/sg3nltY.jpg)
